@@ -1,0 +1,18 @@
+<resources>
+
+    <!--fonts sizes-->
+    <dimen name="title_large">24sp</dimen>
+    <dimen name="title_medium">22sp</dimen>
+    <dimen name="title">18sp</dimen>
+    <dimen name="detail_large">18sp</dimen>
+    <dimen name="detail_medium">16sp</dimen>
+    <dimen name="detail">14sp</dimen>
+    <dimen name="label">14sp</dimen>
+    <dimen name="body_large">28sp</dimen>
+    <dimen name="body">16sp</dimen>
+    <dimen name="helper">16sp</dimen>
+    <dimen name="button_text">18sp</dimen>
+    <dimen name="button_text_small">14sp</dimen>
+
+
+</resources>

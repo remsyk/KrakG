@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView_bot_coin"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:background="@drawable/background_gray_rounded_bottom_left"
+        android:src="@drawable/ic_android_black_24dp"
+        android:layout_gravity="center_vertical"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/textView_bot_value"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/background_gray"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:textSize="@dimen/title"
+        android:textColor="@color/black"
+        android:text="$300" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/textview_bot_gross"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/background_gray_rounded_bottom_right"
+        android:shadowColor="@color/black"
+        android:gravity="center"
+        android:textSize="@dimen/title"
+        android:layout_weight="1"
+        android:textColor="@color/green"
+        android:text="+5.10%" />
+</LinearLayout>
