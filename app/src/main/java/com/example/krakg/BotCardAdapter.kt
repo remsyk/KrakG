@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.cardview_bot.view.*
-import kotlinx.android.synthetic.main.viewgroup_cardview_bottom_bot.view.*
+import kotlinx.android.synthetic.main.viewgroup_cardview_bot_bottom.view.*
 
 class BotCardAdapter(private val data: List<String>, private val context: Context): RecyclerView.Adapter<BotCardAdapter.ViewHolder>() {
 

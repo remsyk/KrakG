@@ -1,6 +1,5 @@
 package com.example.krakg
 
-import android.app.Activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 

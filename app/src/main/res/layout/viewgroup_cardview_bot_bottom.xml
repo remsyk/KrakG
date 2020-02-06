@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_weight="1"
+        android:padding="4dp"
         android:background="@drawable/background_gray_rounded_bottom_left"
         android:src="@drawable/ic_android_black_24dp"
         android:layout_gravity="center_vertical"
