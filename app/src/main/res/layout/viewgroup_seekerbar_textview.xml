@@ -18,25 +18,28 @@
 
     <SeekBar
         android:id="@+id/seekBar"
-        android:layout_width="340dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="32dp"
-        android:max="100"
         style="@style/CustomerSeeker"
-        android:progress="20"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:max="100"
+        android:progress="50"
         android:thumb="@drawable/ic_android_black_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintEnd_toStartOf="@id/textView_seeker_progress"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/textView_seeker_progress"
-        android:layout_width="50dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@id/seekBar"
         android:layout_centerVertical="true"
-        android:text="20"
+        android:gravity="center"
+        android:text="50"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
         app:layout_constraintBottom_toBottomOf="@id/seekBar"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/seekBar"
         app:layout_constraintTop_toTopOf="@id/seekBar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

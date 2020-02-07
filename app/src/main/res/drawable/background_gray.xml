@@ -2,5 +2,5 @@
     <solid android:color="@android:color/transparent" />
 
 
-    <stroke android:width="1dip" android:color="@color/gray"/>
+    <stroke android:width="1dip" android:color="@color/grayTransparent"/>
 </shape>

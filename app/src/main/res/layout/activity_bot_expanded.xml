@@ -1,65 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment_bot_expanded"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
 
-    <ImageView
-        android:id="@+id/imageView"
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/fragment_bot_expanded"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:padding="8dp"
-        android:src="@drawable/ic_android_black_24dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical">
 
-    <include
-        android:id="@+id/include_viewgroup_stats"
-        layout="@layout/viewgroup_expanded_bot_stats"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
-    <View
-        android:id="@+id/divider"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/gray" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_android_black_24dp"
+            tools:srcCompat="@tools:sample/avatars" />
 
-   <include
-       android:id="@+id/include_seekerbar_expanded_1"
-       layout="@layout/viewgroup_seekerbar_textview"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"/>
+        <include
+            android:id="@+id/include_viewgroup_stats"
+            layout="@layout/viewgroup_expanded_bot_stats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <include
-        android:id="@+id/include_seekerbar_expanded_2"
-        layout="@layout/viewgroup_seekerbar_textview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/grayTransparent" />
 
-    <include
-        android:id="@+id/include_seekerbar_expanded_3"
-        layout="@layout/viewgroup_seekerbar_textview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <include
+            android:id="@+id/include_seekerbar_expanded_1"
+            layout="@layout/viewgroup_seekerbar_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <include
-        android:id="@+id/include_seekerbar_expande_4"
-        layout="@layout/viewgroup_seekerbar_textview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <include
+            android:id="@+id/include_seekerbar_expanded_2"
+            layout="@layout/viewgroup_seekerbar_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <View
-        android:id="@+id/divider_2"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/gray" />
+        <include
+            android:id="@+id/include_seekerbar_expanded_3"
+            layout="@layout/viewgroup_seekerbar_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-</LinearLayout>
+        <include
+            android:id="@+id/include_seekerbar_expande_4"
+            layout="@layout/viewgroup_seekerbar_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:id="@+id/divider_2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/grayTransparent" />
+
+    </LinearLayout>
+</ScrollView>
