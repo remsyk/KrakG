@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.anychart.AnyChartView
 import kotlinx.android.synthetic.main.cardview_bot.view.*
 import kotlinx.android.synthetic.main.viewgroup_cardview_bot_bottom.view.*
 
@@ -28,6 +29,9 @@ class BotCardAdapter(private val data: List<String>, private val context: Contex
             value.text ="$400"
             gross.text = "+4.32%"
 
+            val chartModel = LineChartActivity(chart)
+            chartModel.onCreate()
+
             botCard.setOnClickListener {
                 context.startActivity(Intent(context, BotExpandedActivity::class.java))
             }
@@ -36,6 +40,7 @@ class BotCardAdapter(private val data: List<String>, private val context: Contex
 
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val chart: AnyChartView = view.chart
         val botCard: CardView = view.cardview_bot
         val coinImageView: ImageView = view.include_viewgroup_bottom_bot.imageView_bot_coin
         val value: TextView = view.include_viewgroup_bottom_bot.textView_bot_value

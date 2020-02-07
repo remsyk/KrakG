@@ -48,3 +48,4 @@ object RetrofitFactory {
         }.build()
         return okHttpClient
     }
+}
