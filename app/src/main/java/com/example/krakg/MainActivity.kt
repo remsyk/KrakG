@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         recyclerView_bots.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
-        var adapter = BotCardAdapter(myList,this )
+        val adapter = BotCardAdapter(myList,this )
         recyclerView_bots.adapter = adapter
     }
 }
