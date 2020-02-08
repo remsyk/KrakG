@@ -33,11 +33,12 @@
                 android:paddingTop="4dp"
                 android:text="Bot #1"/>
 
-            <ImageView
+            <com.anychart.AnyChartView
+                android:id="@+id/chart"
                 android:layout_width="match_parent"
-                android:src="@drawable/ic_android_black_24dp"
+                android:layout_height="150dp"
                 android:padding="4dp"
-                android:layout_height="150dp" />
+                />
 
 
             <include

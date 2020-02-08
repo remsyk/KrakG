@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.anychart.AnyChartView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.cardview_bot.*
+import kotlinx.android.synthetic.main.cardview_bot.view.*
 import kotlinx.coroutines.*
 import retrofit2.HttpException
 
@@ -19,7 +22,12 @@ class MainActivity : AppCompatActivity() {
         recyclerView_bots.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
         val adapter = BotCardAdapter(myList,this )
         recyclerView_bots.adapter = adapter
+
+
+
     }
+
+
 
   /*  private fun apiCall(callBack: (res: String?) -> Unit) {
         try {
