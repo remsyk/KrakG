@@ -23,31 +23,9 @@ class MainActivity : AppCompatActivity() {
         val adapter = BotCardAdapter(myList,this )
         recyclerView_bots.adapter = adapter
 
-
+        DataManager.getServerTime()
 
     }
-
-
-
-  /*  private fun apiCall(callBack: (res: String?) -> Unit) {
-        try {
-            CoroutineScope(Dispatchers.IO).launch {
-                val res = getTestAsync().await()
-                withContext(Dispatchers.Main) {
-                    when (res.code()) {
-                        200 -> {
-                            callBack(res.body())
-                        }
-                        404 -> Log.e(TAG, "404 Bad Status Code")
-                        else ->
-                            Log.e(TAG, "Bad Status Code")
-                    }
-                }
-            }
-        } catch (e: HttpException) {
-            e.printStackTrace()
-        }
-    }*/
 }
 
 

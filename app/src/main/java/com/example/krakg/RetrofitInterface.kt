@@ -1,12 +1,13 @@
 package com.example.krakg
 
-import kotlinx.coroutines.Deferred
-import retrofit2.Response
+import io.reactivex.Observable
 import retrofit2.http.GET
+import retrofit2.http.Headers
+
 
 interface RetrofitInterface {
 
-   /* @GET("/")
-    fun getTestAsync(): Deferred<Response<String>>
-*/
+    //@Headers("API-Key: Bar", "API-Sign: Pong")
+    @GET("/0/public/Time")
+    fun getServerTime(): Observable<String>
 }

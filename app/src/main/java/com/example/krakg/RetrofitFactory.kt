@@ -29,7 +29,7 @@ object RetrofitFactory {
             .addConverterFactory(create(gson))
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .client(getOkHttpClient())
-            .baseUrl("https://google.com")
+            .baseUrl("https://api.kraken.com")
             .build()
         return retrofit.create(RetrofitInterface::class.java)
     }
