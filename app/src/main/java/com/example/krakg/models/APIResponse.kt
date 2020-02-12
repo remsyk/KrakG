@@ -1,4 +1,4 @@
-package com.example.krakg
+package com.example.krakg.models
 
 import com.google.gson.annotations.SerializedName
 

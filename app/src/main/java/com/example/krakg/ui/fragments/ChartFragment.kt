@@ -1,4 +1,4 @@
-package com.example.krakg
+package com.example.krakg.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.FragmentActivity

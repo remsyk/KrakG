@@ -1,4 +1,4 @@
-package com.example.krakg
+package com.example.krakg.retrofit
 
 import io.reactivex.Observable
 import retrofit2.http.GET

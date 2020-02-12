@@ -2,6 +2,7 @@ package com.example.krakg
 
 import android.annotation.SuppressLint
 import android.util.Log
+import com.example.krakg.retrofit.RetrofitFactory
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 

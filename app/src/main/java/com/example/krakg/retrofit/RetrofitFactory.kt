@@ -1,4 +1,4 @@
-package com.example.krakg
+package com.example.krakg.retrofit
 
 
 import android.util.Log
