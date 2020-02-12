@@ -4,15 +4,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview_bot"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:elevation="10dp"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
         android:layout_marginBottom="4dp"
         android:layout_marginTop="4dp"
         app:cardCornerRadius="6dp">
@@ -43,6 +45,12 @@
                 android:paddingTop="4dp"
                 android:text="+7.2%"/>
 
+            <ImageView
+                android:id="@+id/imageview_asset"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/ic_android_black_24dp"/>
 
 
 

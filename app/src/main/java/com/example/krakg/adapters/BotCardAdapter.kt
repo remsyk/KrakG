@@ -34,7 +34,7 @@ class BotCardAdapter(private val data: List<String>, private val context: Contex
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         with(viewHolder) {
             title.text = data.get(position)
-            coinImageView.setImageDrawable(context.getDrawable(R.drawable.ic_android_black_24dp))
+            coinImageView.setImageDrawable(context.getDrawable(R.drawable.ic_iconmonstr_bitcoin_3))
             value.text ="$400"
             gross.text = "+4.32%"
 
