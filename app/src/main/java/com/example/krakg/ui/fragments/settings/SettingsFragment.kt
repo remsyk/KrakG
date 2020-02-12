@@ -22,9 +22,9 @@ class SettingsFragment : Fragment() {
         notificationsViewModel =
             ViewModelProviders.of(this).get(SettingsViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_settings, container, false)
-        val textView: TextView = root.findViewById(R.id.text_notifications)
-        notificationsViewModel.text.observe(this, Observer {
-            textView.text = it
+        val textView: TextView = root.findViewById(R.id.text_title)
+        notificationsViewModel.text.observe(activity!!, Observer {
+            textView.text = "Settings Panel"
         })
         return root
     }

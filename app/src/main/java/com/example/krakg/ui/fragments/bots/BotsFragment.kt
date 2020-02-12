@@ -1,4 +1,4 @@
-package com.example.krakg.ui.fragments.home
+package com.example.krakg.ui.fragments.bots
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,9 +13,9 @@ import com.example.krakg.DataManager
 import com.example.krakg.R
 import kotlinx.android.synthetic.main.fragment_bots.*
 
-class HomeFragment : Fragment() {
+class BotsFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var homeViewModel: BotsViewModel
     private val myList = listOf("Title One", "Title Two", "Title Three", "Title Four")
 
     override fun onCreateView(
@@ -24,7 +24,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         homeViewModel =
-            ViewModelProviders.of(this).get(HomeViewModel::class.java)
+            ViewModelProviders.of(this).get(BotsViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_bots, container, false)
  //       val textView: TextView = root.findViewById(R.id.text_home)
         homeViewModel.text.observe(activity!!, Observer {

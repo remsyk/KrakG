@@ -23,29 +23,30 @@
             android:orientation="vertical">
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/textView_bot_title"
+                android:id="@+id/textView_title_botexp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/title_medium"
+                android:paddingStart="4dp"
+                android:paddingTop="4dp"
+                android:text="Change"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textView_body_botexp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
                 android:textColor="@color/black"
-                android:textSize="@dimen/title_large"
+                android:textSize="@dimen/title_x_large"
                 android:textStyle="bold"
                 android:paddingStart="4dp"
                 android:paddingTop="4dp"
-                android:text="Bot #1"/>
-
-            <com.anychart.AnyChartView
-                android:id="@+id/chart"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:padding="4dp"
-                />
+                android:text="+7.2%"/>
 
 
-            <include
-                android:id="@+id/include_viewgroup_bottom_bot"
-                layout="@layout/viewgroup_cardview_bot_bottom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+
+
+
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
