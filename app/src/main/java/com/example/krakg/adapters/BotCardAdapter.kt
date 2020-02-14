@@ -34,7 +34,7 @@ class BotCardAdapter(private val data: List<String>, private val context: Contex
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         with(viewHolder) {
             title.text = data.get(position)
-            coinImageView.setImageDrawable(context.getDrawable(R.drawable.ic_iconmonstr_bitcoin_3))
+           // coinImageView.setImageDrawable(context.getDrawable(R.drawable.ic_iconmonstr_bitcoin_3))
             value.text ="$400"
             gross.text = "+4.32%"
 
@@ -51,7 +51,7 @@ class BotCardAdapter(private val data: List<String>, private val context: Contex
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val chart: AnyChartView = view.chart
         val botCard: CardView = view.cardview_bot
-        val coinImageView: ImageView = view.include_viewgroup_bottom_bot.imageView_bot_coin
+        //val coinImageView: ImageView = view.include_viewgroup_bottom_bot.imageView_bot_coin
         val value: TextView = view.include_viewgroup_bottom_bot.textView_bot_value
         val gross: TextView = view.include_viewgroup_bottom_bot.textview_bot_gross
         val title: TextView = view.textView_bot_title

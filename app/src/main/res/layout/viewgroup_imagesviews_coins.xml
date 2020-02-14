@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_gray_rounded_bottom_left">
+
+    <ImageView
+        android:id="@+id/imageView_bot_coin"
+        android:layout_width="20dp"
+        android:layout_height="40dp"
+        android:padding="4dp"
+        android:layout_weight="1"
+        android:src="@drawable/ic_btc_logo"
+        android:layout_gravity="center"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/imageView_arrow"
+        android:layout_width="20dp"
+        android:layout_height="40dp"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_keyboard_arrow_right_24px"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/imageView_bot_coin_2"
+        android:layout_width="20dp"
+        android:layout_height="40dp"
+        android:padding="4dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:src="@drawable/ic_litecoin"
+        tools:srcCompat="@tools:sample/avatars" />
+
+</LinearLayout>

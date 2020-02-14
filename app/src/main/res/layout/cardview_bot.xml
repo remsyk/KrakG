@@ -22,6 +22,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textView_bot_title"
                 android:layout_width="match_parent"

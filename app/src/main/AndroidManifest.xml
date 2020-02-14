@@ -15,7 +15,7 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".ui.activities.MainActivity"
-            android:label="MainActivity">
+            android:label="KrakG">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
