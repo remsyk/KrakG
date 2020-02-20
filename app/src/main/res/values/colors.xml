@@ -20,5 +20,6 @@
     <color name="black">#000000</color>
     <color name="transparent">#00000000</color>
     <color name="grayTransparent">#BFC0C0C0</color>
+    <color name="kraken">#4524CF</color>
 
 </resources>
