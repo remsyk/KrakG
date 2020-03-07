@@ -29,7 +29,7 @@
         android:background="@color/transparent"
         style="?android:attr/borderlessButtonStyle"
         android:height="0dp"
-        app:icon="@drawable/ic_add_24px"
+        app:icon="@drawable/ic_android_black_24dp"
         app:iconGravity="textStart"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

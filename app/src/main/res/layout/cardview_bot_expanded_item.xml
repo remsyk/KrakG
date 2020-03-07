@@ -9,7 +9,7 @@
     android:layout_marginEnd="8dp">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardview_bot"
+        android:id="@+id/cardview_bot_expanded"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:elevation="10dp"

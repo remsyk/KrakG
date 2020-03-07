@@ -2,7 +2,7 @@ package com.example.krakg.models
 
 import com.google.gson.annotations.SerializedName
 
-data class ExpandedBotCardModel (
+data class ExpandedBotCardModel(
     @SerializedName("title")
     var title: String,
     @SerializedName("value")

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.anychart.AnyChartView
@@ -14,6 +15,7 @@ import com.example.krakg.ui.fragments.LineChartActivity
 import com.example.krakg.R
 import com.example.krakg.models.ExpandedBotCardModel
 import com.example.krakg.ui.activities.BotExpandedActivity
+import com.example.krakg.ui.fragments.bots_expanded.BotConditionMaker
 import kotlinx.android.synthetic.main.cardview_bot.view.*
 import kotlinx.android.synthetic.main.cardview_bot_expanded_item.view.*
 import kotlinx.android.synthetic.main.viewgroup_cardview_bot_bottom.view.*
@@ -53,15 +55,25 @@ class BotExpandedCardAdapter(private val data: List<ExpandedBotCardModel>, priva
                 asset.visibility = View.GONE
             }
 
+            card.setOnClickListener {
+                when(position){
+                    5 -> {
+                        (context as AppCompatActivity).supportFragmentManager.beginTransaction()
+                            .replace(R.id.framelayout_generic_layout, BotConditionMaker())
+                            .addToBackStack("Fragment")
+                            .commit()
+                    }
+                }
+            }
         }
     }
 
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val card: CardView = view.cardview_bot_expanded
         val title: TextView = view.textView_title_botexp
         val body: TextView = view.textView_body_botexp
         val asset: ImageView = view.imageview_asset
-
     }
 }
 
