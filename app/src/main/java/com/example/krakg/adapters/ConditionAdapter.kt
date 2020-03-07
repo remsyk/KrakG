@@ -13,7 +13,9 @@ import com.anychart.AnyChartView
 import com.example.krakg.ui.fragments.LineChartActivity
 import com.example.krakg.R
 import com.example.krakg.ui.activities.BotExpandedActivity
+import com.google.android.material.textview.MaterialTextView
 import kotlinx.android.synthetic.main.cardview_bot.view.*
+import kotlinx.android.synthetic.main.cardview_condition.view.*
 import kotlinx.android.synthetic.main.viewgroup_cardview_bot_bottom.view.*
 
 class ConditionAdapter(private val data: List<String>, private val context: Context): RecyclerView.Adapter<ConditionAdapter.ViewHolder>() {
@@ -33,28 +35,13 @@ class ConditionAdapter(private val data: List<String>, private val context: Cont
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         with(viewHolder) {
-            title.text = data.get(position)
-           // coinImageView.setImageDrawable(context.getDrawable(R.drawable.ic_iconmonstr_bitcoin_3))
-            value.text ="$400"
-            gross.text = "+4.32%"
-
-            val chartModel = LineChartActivity(chart)
-            chartModel.onCreate()
-
-            botCard.setOnClickListener {
-                context.startActivity(Intent(context, BotExpandedActivity::class.java))
-            }
+            title.text = "Buy"
         }
     }
 
-
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val chart: AnyChartView = view.chart
-        val botCard: CardView = view.cardview_bot
-        //val coinImageView: ImageView = view.include_viewgroup_bottom_bot.imageView_bot_coin
-        val value: TextView = view.include_viewgroup_bottom_bot.textView_bot_value
-        val gross: TextView = view.include_viewgroup_bottom_bot.textview_bot_gross
-        val title: TextView = view.textView_bot_title
+        val title: MaterialTextView = view.textview_title_request
+
     }
 }
 
