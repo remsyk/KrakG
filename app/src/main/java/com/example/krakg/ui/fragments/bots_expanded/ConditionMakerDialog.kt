@@ -37,10 +37,14 @@ class ConditionMakerDialog: DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
-        //customView = LayoutInflater.inflate(context!!, R.layout.viewgroup_dialog_condition)
+        //customView = LayoutInflater.inflate(context!!, R.layout.cardview_condition_viewer.xml)
         return AlertDialog.Builder(context!!)
             .setTitle("weee")
+            .setView(R.layout.framelayout_dialog_buy_sell)
+
             .create()
 
     }
+
+
 }

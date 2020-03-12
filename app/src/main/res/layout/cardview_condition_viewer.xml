@@ -24,32 +24,51 @@
 
             <com.google.android.material.chip.ChipGroup
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                app:chipSpacingHorizontal="0dp"
+                app:chipSpacingVertical="0dp">
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_buy_sell"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="test"/>
+                    android:text="Buy"/>
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_if"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="If"/>
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_interval1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Weekly"/>
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="price"/>
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_change"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5%"/>
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_operator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="greater than"/>
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_interval2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="weekly"/>
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_indicator2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="test"/>
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="test"/>
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="test"/>
-                <com.google.android.material.chip.Chip
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="test"/>
+                    android:text="price"/>
+
             </com.google.android.material.chip.ChipGroup>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
