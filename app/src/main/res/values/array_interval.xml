@@ -1,0 +1,17 @@
+<resources>
+    <string-array name="intervals">
+        <item>1min</item>
+        <item>6min</item>
+        <item>1hr</item>
+        <item>6hr</item>
+        <item>1d</item>
+        <item>6d</item>
+        <item>1wk</item>
+        <item>6wk</item>
+        <item>1m</item>
+        <item>6m</item>
+        <item>1y</item>
+        <item>5y</item>
+    </string-array>
+
+</resources>

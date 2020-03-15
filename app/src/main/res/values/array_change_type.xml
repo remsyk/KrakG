@@ -1,0 +1,9 @@
+<resources>
+    <string-array name="change_types">
+        <item>%</item>
+        <item>$</item>
+        <item>BTC</item>
+        <item>LTC</item>
+    </string-array>
+
+</resources>

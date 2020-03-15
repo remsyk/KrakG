@@ -1,0 +1,7 @@
+<resources>
+    <string-array name="buy_sell">
+        <item>Buy</item>
+        <item>Sell</item>
+    </string-array>
+
+</resources>

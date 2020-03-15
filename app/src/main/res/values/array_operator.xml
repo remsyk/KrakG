@@ -1,0 +1,8 @@
+<resources>
+    <string-array name="operator">
+        <item>greater than</item>
+        <item>less than</item>
+        <item>same as</item>
+    </string-array>
+
+</resources>

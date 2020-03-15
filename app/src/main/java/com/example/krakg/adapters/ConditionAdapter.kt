@@ -1,23 +1,16 @@
 package com.example.krakg.adapters
 
-import android.app.Activity
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.krakg.R
-import com.example.krakg.ui.fragments.bots_expanded.ConditionMakerDialog
+import com.example.krakg.log
+import com.example.krakg.ui.fragments.dialogs.*
 import kotlinx.android.synthetic.main.cardview_condition_viewer.view.*
-import kotlinx.android.synthetic.main.viewgroup_dialog_condition_editor.view.*
 
 class ConditionAdapter(private val data: List<String>, private val context: FragmentActivity): RecyclerView.Adapter<ConditionAdapter.ViewHolder>() {
-
-    private val buySellList = listOf("Title One", "Title Two", "Title Three", "Title Four")
-
-    val dialog: ConditionMakerDialog = ConditionMakerDialog()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -31,15 +24,50 @@ class ConditionAdapter(private val data: List<String>, private val context: Frag
 
     override fun getItemCount() = data.size
 
-
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         with(viewHolder) {
 
             buySell.setOnClickListener {
-                dialog.show(context.supportFragmentManager,"wer")
+                ConditionBuySellDialog.show(context.supportFragmentManager).getValue = { value ->
+                    value.log()
+                }
             }
 
+            interval1.setOnClickListener {
+                ConditionIntervalDialog.show(context.supportFragmentManager).getValue = { value ->
+                    value.log()
+                }
+            }
 
+            indicator1.setOnClickListener {
+                ConditionIndicatorDialog.show(context.supportFragmentManager).getValue = { value ->
+                    value.log()
+                }
+            }
+
+            change.setOnClickListener {
+                ConditionChangeDialog.show(context.supportFragmentManager).getValue = { value ->
+                    value.log()
+                }
+            }
+
+            operator.setOnClickListener {
+                ConditionOperatorDialog.show(context.supportFragmentManager).getValue = { value ->
+                    value.log()
+                }
+            }
+
+            interval2.setOnClickListener {
+                ConditionIntervalDialog.show(context.supportFragmentManager).getValue = { value ->
+                    value.log()
+                }
+            }
+
+            indicator2.setOnClickListener {
+                ConditionIndicatorDialog.show(context.supportFragmentManager).getValue = { value ->
+                    value.log()
+                }
+            }
         }
     }
 

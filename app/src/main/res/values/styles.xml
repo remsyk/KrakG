@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="radioButtonStyle">@style/RadioStyle</item>
     </style>
 
     <style name="CustomerSeeker" parent="Widget.AppCompat.SeekBar">
@@ -13,6 +14,14 @@
         <item name="android:progressTint">@color/colorPrimary</item>
         <item name="android:colorControlActivated">@color/colorPrimaryDark</item>
     </style>
+
+    <style name="RadioStyle" parent="Widget.MaterialComponents.CompoundButton.RadioButton">
+        <item name="android:progressBackgroundTint">@color/colorPrimary</item>
+        <item name="android:progressTint">@color/colorPrimary</item>
+        <item name="android:colorControlActivated">@color/colorPrimaryDark</item>
+    </style>
+
+
 
 
 </resources>
