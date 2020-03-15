@@ -21,7 +21,4 @@
         <item name="android:colorControlActivated">@color/colorPrimaryDark</item>
     </style>
 
-
-
-
 </resources>

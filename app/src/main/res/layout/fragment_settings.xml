@@ -37,8 +37,7 @@
             app:layout_constraintTop_toBottomOf="@id/text_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:placeholderText="27a7afd9-bfaf-4a91-bdc8-f9fb1f5e3585"
-            >
+            app:placeholderText="27a7afd9-bfaf-4a91-bdc8-f9fb1f5e3585">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"

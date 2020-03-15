@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.krakg.R
 import com.example.krakg.adapters.BotExpandedCardAdapter
 import com.example.krakg.models.ExpandedBotCardModel
+import com.example.krakg.ui.activities.BotExpandedActivity
 import kotlinx.android.synthetic.main.fragment_bot_expanded.*
 
 class BotExpandedFragment: Fragment() {
