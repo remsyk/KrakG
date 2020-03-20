@@ -20,7 +20,6 @@ object BotsViewModel : ViewModel() {
     fun addBot (botModel: BotModel){
         botList.value!!.add(botModel)
         botList.postValue(botList.value)
-        getBots().value!!.size.log()
     }
 
 

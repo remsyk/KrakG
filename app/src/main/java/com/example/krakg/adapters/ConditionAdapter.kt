@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.krakg.R
 import com.example.krakg.log
 import com.example.krakg.models.ConditionModel
+import com.example.krakg.ui.fragments.bots_expanded.ConditionMakerViewModel
 import com.example.krakg.ui.fragments.dialogs.*
 import kotlinx.android.synthetic.main.cardview_condition_viewer.view.*
 
@@ -37,6 +38,11 @@ class ConditionAdapter( private val context: FragmentActivity): RecyclerView.Ada
             operator.text = conditionsList[position].operator
             interval2.text = conditionsList[position].interval2
             indicator2.text = conditionsList[position].indicator2
+
+            cardViewCondition.setOnLongClickListener {
+                ConditionMakerViewModel.removeCondition(position)
+                true
+            }
 
             buySell.setOnClickListener {
                 ConditionBuySellDialog.show(context.supportFragmentManager).getValue = { value ->
@@ -98,6 +104,7 @@ class ConditionAdapter( private val context: FragmentActivity): RecyclerView.Ada
 
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val cardViewCondition = view.cardview_condition
         val buySell = view.chip_buy_sell
         val _if = view.chip_if
         val interval1 = view.chip_interval1

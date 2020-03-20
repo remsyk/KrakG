@@ -28,7 +28,11 @@ object ConditionMakerViewModel : ViewModel() {
     fun addConditions (conditionModel: ConditionModel){
         conditionList.value!!.add(conditionModel)
         conditionList.postValue(conditionList.value)
-        getConditions().value!!.size.log()
+    }
+
+    fun removeCondition(position:Int){
+        conditionList.value!!.removeAt(position)
+        conditionList.postValue(conditionList.value)
     }
 
 
