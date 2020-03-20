@@ -7,7 +7,9 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.krakg.R
 import com.example.krakg.log
+import com.example.krakg.models.ConditionModel
 import com.example.krakg.ui.fragments.bots_expanded.BotExpandedFragment
+import com.example.krakg.ui.fragments.bots_expanded.ConditionMakerViewModel
 
 
 class BotExpandedActivity: AppCompatActivity() {
@@ -35,6 +37,14 @@ class BotExpandedActivity: AppCompatActivity() {
         return true
     }
 
+    override fun onBackPressed() {
+        if(supportFragmentManager.backStackEntryCount ==1){
+            finish()
+        }else {
+            supportFragmentManager.popBackStack()
+        }
+    }
+
     override fun onOptionsItemSelected(item:MenuItem): Boolean {
         when(item.itemId){
 
@@ -51,7 +61,7 @@ class BotExpandedActivity: AppCompatActivity() {
             }
 
             R.id.add_condition->{
-                "add condition".log()
+                ConditionMakerViewModel.addConditions(ConditionModel("Sell","if","daily","avg","40%","greater than","monthly","avg"))
             }
         }
         return true

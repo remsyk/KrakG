@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="?attr/actionBarSize">
 
     <include
         android:id="@+id/include_action_bar_title_price"
@@ -16,15 +16,17 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    
+
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/design_menu_item"
+        android:id="@+id/design_menu_item_add"
         android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_gravity="end"
-        app:iconSize="30dp"
+        app:iconSize="25dp"
         android:background="@color/transparent"
         style="?android:attr/borderlessButtonStyle"
         android:height="0dp"

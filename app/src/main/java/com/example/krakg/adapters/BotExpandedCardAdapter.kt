@@ -1,7 +1,6 @@
 package com.example.krakg.adapters
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,15 +9,10 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import com.anychart.AnyChartView
-import com.example.krakg.ui.fragments.LineChartActivity
 import com.example.krakg.R
 import com.example.krakg.models.ExpandedBotCardModel
-import com.example.krakg.ui.activities.BotExpandedActivity
-import com.example.krakg.ui.fragments.bots_expanded.BotConditionMaker
-import kotlinx.android.synthetic.main.cardview_bot.view.*
+import com.example.krakg.ui.fragments.bots_expanded.ConditionMakerFragment
 import kotlinx.android.synthetic.main.cardview_bot_expanded_item.view.*
-import kotlinx.android.synthetic.main.viewgroup_cardview_bot_bottom.view.*
 
 class BotExpandedCardAdapter(private val data: List<ExpandedBotCardModel>, private val context: Context): RecyclerView.Adapter<BotExpandedCardAdapter.ViewHolder>() {
 
@@ -59,7 +53,7 @@ class BotExpandedCardAdapter(private val data: List<ExpandedBotCardModel>, priva
                 when(position){
                     5 -> {
                         (context as AppCompatActivity).supportFragmentManager.beginTransaction()
-                            .replace(R.id.framelayout_generic_layout, BotConditionMaker())
+                            .replace(R.id.framelayout_generic_layout, ConditionMakerFragment())
                             .addToBackStack("Fragment")
                             .commit()
                     }

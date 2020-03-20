@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.anychart.AnyChartView
 import com.example.krakg.ui.fragments.LineChartActivity
 import com.example.krakg.R
+import com.example.krakg.log
 import com.example.krakg.models.BotModel
 import com.example.krakg.ui.activities.BotExpandedActivity
 import com.example.krakg.ui.fragments.bots.BotsViewModel
@@ -21,9 +22,10 @@ import kotlinx.android.synthetic.main.cardview_bot.view.*
 import kotlinx.android.synthetic.main.viewgroup_cardview_bot_bottom.view.*
 
 class BotCardAdapter(
-    private val data: MutableList<BotModel>,
     private val context: FragmentActivity
 ) : RecyclerView.Adapter<BotCardAdapter.ViewHolder>() {
+
+    lateinit var botsList: MutableList<BotModel>
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -35,16 +37,16 @@ class BotCardAdapter(
         )
     }
 
-    override fun getItemCount() = data.size
+
+    override fun getItemCount() = botsList.size
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
 
         with(viewHolder) {
-
-            title.text = data.get(position).title
+            title.text = botsList[position].title
             // coinImageView.setImageDrawable(context.getDrawable(R.drawable.ic_iconmonstr_bitcoin_3))
-            value.text = data.get(position).value
-            gross.text = data.get(position).gross
+            value.text = botsList[position].value
+            gross.text = botsList[position].gross
 
             val chartModel = LineChartActivity(chart)
             chartModel.onCreate()
@@ -55,10 +57,16 @@ class BotCardAdapter(
         }
     }
 
+    fun updateData(data: MutableList<BotModel>) {
+        botsList = data
+        notifyDataSetChanged()
+    }
+
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val chart: AnyChartView = view.chart
         val botCard: CardView = view.cardview_bot
+
         //val coinImageView: ImageView = view.include_viewgroup_bottom_bot.imageView_bot_coin
         val value: TextView = view.include_viewgroup_bottom_bot.textView_bot_value
         val gross: TextView = view.include_viewgroup_bottom_bot.textview_bot_gross

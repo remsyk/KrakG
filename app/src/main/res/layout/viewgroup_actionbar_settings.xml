@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_gravity="end"
-        app:iconSize="30dp"
+        app:iconSize="25dp"
         android:background="@color/transparent"
         style="?android:attr/borderlessButtonStyle"
         android:height="0dp"

@@ -12,10 +12,14 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.krakg.adapters.BotCardAdapter
 import com.example.krakg.DataManager
 import com.example.krakg.R
+import com.example.krakg.log
 import com.example.krakg.models.BotModel
+import com.example.krakg.ui.fragments.dashboard.DashboardViewModel
 import kotlinx.android.synthetic.main.fragment_bots.*
+import kotlinx.android.synthetic.main.viewgroup_actionbar_bots.*
 
 class BotsFragment : Fragment() {
+
     override fun onResume() {
         super.onResume()
         (activity as AppCompatActivity).supportActionBar!!.setCustomView(R.layout.viewgroup_actionbar_bots)
@@ -32,10 +36,11 @@ class BotsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recyclerView_bots.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
+        val adapter = BotCardAdapter(activity!!)
+        recyclerView_bots.adapter = adapter
 
         BotsViewModel.getBots().observe(activity!!,Observer <MutableList<BotModel>> {
-            val adapter = BotCardAdapter(it, activity!!)
-            recyclerView_bots.adapter = adapter
+            adapter.updateData(it)
         })
     }
 }

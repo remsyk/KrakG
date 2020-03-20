@@ -9,8 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/text_title"
@@ -27,46 +26,57 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textLayout_api"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textLayout_api"
+            android:hint="Api Key"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
-            android:hint="Api Key"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:layout_constraintTop_toBottomOf="@id/text_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_title"
             app:placeholderText="27a7afd9-bfaf-4a91-bdc8-f9fb1f5e3585">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:textSize="@dimen/body"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/body" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textLayout_wallet"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Wallet Hash"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
-            android:id="@+id/textLayout_wallet"
-            android:hint="Wallet Hash"
-
-            app:placeholderText="44720defbb6ed0ed2e0f49184c631f42"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:layout_constraintTop_toBottomOf="@id/textLayout_api"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            >
+            app:layout_constraintTop_toBottomOf="@id/textLayout_api"
+            app:placeholderText="44720defbb6ed0ed2e0f49184c631f42">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:textSize="@dimen/body"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/body" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="@color/grayTransparent"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="Error Log"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textLayout_wallet" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

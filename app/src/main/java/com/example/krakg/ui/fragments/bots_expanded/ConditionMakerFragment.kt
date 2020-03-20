@@ -5,13 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.krakg.R
 import com.example.krakg.adapters.ConditionAdapter
+import com.example.krakg.models.ConditionModel
 import com.example.krakg.ui.activities.BotExpandedActivity.Companion.setActionBarMenuOptions
 import kotlinx.android.synthetic.main.fragment_bot_condition_maker.*
 
-class BotConditionMaker: Fragment() {
+class ConditionMakerFragment: Fragment() {
     private val myList = listOf("Title One", "Title Two", "Title Three", "Title Four")
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,8 +33,6 @@ class BotConditionMaker: Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         setActionBarMenuOptions(true)
-
-
     }
 
 
@@ -40,7 +40,13 @@ class BotConditionMaker: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         recyclerView_conditions.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
-        val adapter = ConditionAdapter(myList, activity!!)
+        val adapter = ConditionAdapter( activity!!)
         recyclerView_conditions.adapter = adapter
+
+        ConditionMakerViewModel.getConditions().observe(activity!!, Observer <MutableList<ConditionModel>> {
+            adapter.updateData(it)
+        })
+
+
     }
 }
