@@ -58,5 +58,7 @@ class DashboardFragment : Fragment() {
         recyclerView_dashboard.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
         val adapter = DashboardCardAdapter(myList, activity!!)
         recyclerView_dashboard.adapter = adapter
+
+
     }
 }

@@ -12,14 +12,10 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.krakg.adapters.BotCardAdapter
 import com.example.krakg.DataManager
 import com.example.krakg.R
+import com.example.krakg.models.BotModel
 import kotlinx.android.synthetic.main.fragment_bots.*
 
 class BotsFragment : Fragment() {
-
-    private lateinit var homeViewModel: BotsViewModel
-    private val myList = listOf("Title One", "Title Two", "Title Three", "Title Four")
-
-
     override fun onResume() {
         super.onResume()
         (activity as AppCompatActivity).supportActionBar!!.setCustomView(R.layout.viewgroup_actionbar_bots)
@@ -29,24 +25,17 @@ class BotsFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        homeViewModel =
-            ViewModelProviders.of(this).get(BotsViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_bots, container, false)
- //       val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(activity!!, Observer {
-            //textView.text = it
-        })
-        return root
-    }
+    ): View? = inflater.inflate(R.layout.fragment_bots, container, false)
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         recyclerView_bots.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
-        val adapter = BotCardAdapter(myList, activity!!)
-        recyclerView_bots.adapter = adapter
 
-        DataManager.getServerTime()
+        BotsViewModel.getBots().observe(activity!!,Observer <MutableList<BotModel>> {
+            val adapter = BotCardAdapter(it, activity!!)
+            recyclerView_bots.adapter = adapter
+        })
     }
 }

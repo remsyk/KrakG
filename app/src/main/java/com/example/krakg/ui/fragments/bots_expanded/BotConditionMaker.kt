@@ -8,14 +8,14 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.krakg.R
 import com.example.krakg.adapters.ConditionAdapter
-import com.example.krakg.ui.activities.BotExpandedActivity.Companion.setActioBarMenuOptions
+import com.example.krakg.ui.activities.BotExpandedActivity.Companion.setActionBarMenuOptions
 import kotlinx.android.synthetic.main.fragment_bot_condition_maker.*
 
 class BotConditionMaker: Fragment() {
     private val myList = listOf("Title One", "Title Two", "Title Three", "Title Four")
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        setActioBarMenuOptions(false)
+        setActionBarMenuOptions(false)
         super.onCreate(savedInstanceState)
     }
 
@@ -30,7 +30,7 @@ class BotConditionMaker: Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        setActioBarMenuOptions(true)
+        setActionBarMenuOptions(true)
 
 
     }

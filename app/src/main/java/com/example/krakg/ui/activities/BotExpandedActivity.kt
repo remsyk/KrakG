@@ -21,7 +21,6 @@ class BotExpandedActivity: AppCompatActivity() {
         supportFragmentManager.beginTransaction().replace(R.id.framelayout_generic_layout,
             BotExpandedFragment()
         ).addToBackStack("BotExpandedFragment").commit()
-
     }
 
 
@@ -31,9 +30,8 @@ class BotExpandedActivity: AppCompatActivity() {
 
         if (menu != null) {
             menuTest = menu
-            setActioBarMenuOptions(true)
+            setActionBarMenuOptions(true)
         }
-
         return true
     }
 
@@ -62,7 +60,7 @@ class BotExpandedActivity: AppCompatActivity() {
     companion object {
         lateinit var menuTest: Menu
 
-        fun setActioBarMenuOptions(visibility: Boolean) {
+        fun setActionBarMenuOptions(visibility: Boolean) {
             menuTest.findItem(R.id.pause_bot).isVisible = visibility
             menuTest.findItem(R.id.add_condition).isVisible = !visibility
         }
