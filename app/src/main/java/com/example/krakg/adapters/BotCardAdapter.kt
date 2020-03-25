@@ -1,23 +1,18 @@
 package com.example.krakg.adapters
 
-import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.FragmentActivity
-import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import com.anychart.AnyChartView
 import com.example.krakg.ui.fragments.LineChartActivity
 import com.example.krakg.R
-import com.example.krakg.log
 import com.example.krakg.models.BotModel
 import com.example.krakg.ui.activities.BotExpandedActivity
-import com.example.krakg.ui.fragments.bots.BotsViewModel
 import kotlinx.android.synthetic.main.cardview_bot.view.*
 import kotlinx.android.synthetic.main.viewgroup_cardview_bot_bottom.view.*
 
@@ -44,9 +39,9 @@ class BotCardAdapter(
 
         with(viewHolder) {
             title.text = botsList[position].title
-            // coinImageView.setImageDrawable(context.getDrawable(R.drawable.ic_iconmonstr_bitcoin_3))
             value.text = botsList[position].value
             gross.text = botsList[position].gross
+            exchange.text = botsList[position].exchange
 
             val chartModel = LineChartActivity(chart)
             chartModel.onCreate()
@@ -66,11 +61,10 @@ class BotCardAdapter(
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val chart: AnyChartView = view.chart
         val botCard: CardView = view.cardview_bot
-
-        //val coinImageView: ImageView = view.include_viewgroup_bottom_bot.imageView_bot_coin
         val value: TextView = view.include_viewgroup_bottom_bot.textView_bot_value
         val gross: TextView = view.include_viewgroup_bottom_bot.textview_bot_gross
         val title: TextView = view.textView_bot_title
+        val exchange: TextView= view.include_viewgroup_bottom_bot.textView_bot_exchange
     }
 }
 

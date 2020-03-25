@@ -24,8 +24,8 @@
                 android:orientation="vertical">
 
                 <include
-                    android:id="@+id/include_title"
-                    layout="@layout/viewgroup_api_dashboard_item_title"
+                    android:id="@+id/include_coin"
+                    layout="@layout/viewgroup_api_dashboard_item"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 

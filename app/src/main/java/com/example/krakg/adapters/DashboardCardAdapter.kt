@@ -32,6 +32,9 @@ class DashboardCardAdapter(private val data: List<String>, private val context: 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         with(viewHolder) {
 
+            coinTitle.text = "Coin"
+            coinItem.text = "BTC"
+
             priceTitle.text =  "Price"
             priceItem.text = "$3000"
 
@@ -50,10 +53,11 @@ class DashboardCardAdapter(private val data: List<String>, private val context: 
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         //val fab: FloatingActionButton = view.fab_dashboard
-        val dashCard: CardView = view.cardview_dashboard
+        //val dashCard: CardView = view.cardview_dashboard
 
-        val cardTitlePlatform:ImageView = view.include_title.imageview_platform
-        val cardTitleCoin:ImageView = view.include_title.imageview_coin
+        val coinTitle: MaterialTextView = view.include_coin.textview_title
+        val coinItem: MaterialTextView = view.include_coin.textView_item
+
 
         val priceTitle: MaterialTextView = view.include_price.textview_title
         val priceItem: MaterialTextView = view.include_price.textView_item

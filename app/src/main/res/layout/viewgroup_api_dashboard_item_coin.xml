@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/textview_title_coin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="6dp"
+        android:paddingStart="20dp"
+        android:textSize="@dimen/title"
+        android:layout_weight="1"
+        android:textAlignment="viewStart"
+        android:text="Coin" />
+
+    <ImageView
+        android:src="@drawable/ic_btc_logo"
+        android:layout_weight="1"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_gravity="end"
+        android:paddingEnd="16dp" />
+
+</LinearLayout>
