@@ -14,7 +14,6 @@ import com.example.krakg.ui.activities.BotExpandedActivity.Companion.setActionBa
 import kotlinx.android.synthetic.main.fragment_bot_condition_maker.*
 
 class ConditionMakerFragment: Fragment() {
-    private val myList = listOf("Title One", "Title Two", "Title Three", "Title Four")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setActionBarMenuOptions(false)

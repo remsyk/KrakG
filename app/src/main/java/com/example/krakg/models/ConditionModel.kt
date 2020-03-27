@@ -18,5 +18,7 @@ data class ConditionModel(
     @SerializedName("interval2")
     var interval2: String,
     @SerializedName("indicator2")
-    var indicator2: String
+    var indicator2: String,
+    @SerializedName("amount")
+    var amount: String
 )

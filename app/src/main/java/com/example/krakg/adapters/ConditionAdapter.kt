@@ -94,6 +94,13 @@ class ConditionAdapter( private val context: FragmentActivity): RecyclerView.Ada
                     value.log()
                 }
             }
+
+            amount.setOnClickListener {
+               ConditionAmountDialog.show(context.supportFragmentManager).getValue = { value ->
+                       conditionsList[position].change = value
+                       value.log()
+                   }
+            }
         }
     }
 
@@ -104,15 +111,17 @@ class ConditionAdapter( private val context: FragmentActivity): RecyclerView.Ada
 
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val cardViewCondition = view.cardview_condition
-        val buySell = view.chip_buy_sell
-        val _if = view.chip_if
-        val interval1 = view.chip_interval1
-        val indicator1 = view.chip_indicator
-        val change = view.chip_change
-        val operator = view.chip_operator
-        val interval2 = view.chip_interval2
-        val indicator2 = view.chip_indicator2
+            val cardViewCondition = view.cardview_condition
+            val buySell = view.chip_buy_sell
+            val _if = view.chip_if
+            val interval1 = view.chip_interval1
+            val indicator1 = view.chip_indicator
+            val change = view.chip_change
+            val operator = view.chip_operator
+            val interval2 = view.chip_interval2
+            val indicator2 = view.chip_indicator2
+            val _for = view.chip_for
+            val amount = view.chip_amount
     }
 }
 

@@ -32,7 +32,6 @@ class BotCardAdapter(
         )
     }
 
-
     override fun getItemCount() = botsList.size
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {

@@ -1,0 +1,8 @@
+<resources>
+    <string-array name="amount">
+        <item>$</item>
+        <item>BTC</item>
+        <item>LTC</item>
+    </string-array>
+
+</resources>

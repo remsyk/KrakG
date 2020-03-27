@@ -10,11 +10,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.krakg.R
+import com.example.krakg.log
+import com.example.krakg.models.ConditionModel
 import com.example.krakg.models.ExpandedBotCardModel
 import com.example.krakg.ui.fragments.bots_expanded.ConditionMakerFragment
+import com.example.krakg.ui.fragments.bots_expanded.ExpandedBotViewModel
 import kotlinx.android.synthetic.main.cardview_bot_expanded_item.view.*
 
-class BotExpandedCardAdapter(private val data: List<ExpandedBotCardModel>, private val context: Context): RecyclerView.Adapter<BotExpandedCardAdapter.ViewHolder>() {
+class BotExpandedCardAdapter( private val context: Context): RecyclerView.Adapter<BotExpandedCardAdapter.ViewHolder>() {
+
+    private lateinit var indicatorList: List<ExpandedBotCardModel>
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -26,32 +31,43 @@ class BotExpandedCardAdapter(private val data: List<ExpandedBotCardModel>, priva
         )
     }
 
-    override fun getItemCount() = data.size
+    override fun getItemCount() = indicatorList.size
 
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         with(viewHolder) {
-            title.text = data[position].title
+            title.text = indicatorList[position].title
             var bodyText = ""
-            bodyText = if(data[position].prefix.isNullOrBlank()){
-                if(data[position].suffix.isNullOrBlank()){
-                    data[position].value.toString()
+            bodyText = if(indicatorList[position].prefix.isNullOrBlank()){
+                if(indicatorList[position].suffix.isNullOrBlank()){
+                    indicatorList[position].value.toString()
                 }else{
-                    data[position].value.toString() + data[position].suffix
+                    indicatorList[position].value.toString() + indicatorList[position].suffix
                 }
             }else{
-                data[position].prefix + data[position].value
+                indicatorList[position].prefix + indicatorList[position].value
             }
 
             body.text = bodyText
 
-            if(!data[position].hasasset) {
+            if(!indicatorList[position].hasasset) {
                 asset.visibility = View.GONE
+            }else{
+                asset.setImageDrawable( (context as AppCompatActivity).resources.getDrawable(R.drawable.ic_android_black_24dp, context.getTheme()))
             }
 
             card.setOnClickListener {
                 when(position){
-                    5 -> {
+
+                    7 -> {
+                        "this was pressed".log()
+                        val tempInidicator = indicatorList[position]
+                        tempInidicator.value = false
+
+                        ExpandedBotViewModel.updateIndicator(position, tempInidicator)
+
+                    }
+                    8->{
                         (context as AppCompatActivity).supportFragmentManager.beginTransaction()
                             .replace(R.id.framelayout_generic_layout, ConditionMakerFragment())
                             .addToBackStack("Fragment")
@@ -60,6 +76,11 @@ class BotExpandedCardAdapter(private val data: List<ExpandedBotCardModel>, priva
                 }
             }
         }
+    }
+
+    fun updateData(data: MutableList<ExpandedBotCardModel>){
+        indicatorList = data
+        notifyDataSetChanged()
     }
 
 

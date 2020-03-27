@@ -8,20 +8,13 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.krakg.R
 import com.example.krakg.adapters.BotExpandedCardAdapter
+import com.example.krakg.models.ConditionModel
 import com.example.krakg.models.ExpandedBotCardModel
-import com.example.krakg.ui.activities.BotExpandedActivity
 import kotlinx.android.synthetic.main.fragment_bot_expanded.*
+import androidx.lifecycle.Observer
+
 
 class BotExpandedFragment: Fragment() {
-    private val myList = listOf(
-        ExpandedBotCardModel("Net Change", 2.3, null, "%", false, null),
-        ExpandedBotCardModel("Gross", 800.2, "$",null, true, null),
-        ExpandedBotCardModel("Value", 4000.5, "$",null, false, null),
-        ExpandedBotCardModel("Avg", 82.1, null, "%", true, null),
-        ExpandedBotCardModel("Trades/Hr", 40.7, null, null, false, null),
-        ExpandedBotCardModel("Total Trades", 10.9, null, null, true, null),
-        ExpandedBotCardModel("Time Up", 100.23, null, "sec", false, null)
-    )
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,7 +29,13 @@ class BotExpandedFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         recyclerView_bots_expanded.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-        val adapter = BotExpandedCardAdapter(myList, activity!!)
+        val adapter = BotExpandedCardAdapter( activity!!)
         recyclerView_bots_expanded.adapter = adapter
+
+        ExpandedBotViewModel.getInidcators().observe(activity!!, Observer <MutableList<ExpandedBotCardModel>> {
+            adapter.updateData(it)
+        })
+
+
     }
 }

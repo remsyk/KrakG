@@ -18,9 +18,9 @@ object ConditionMakerViewModel : ViewModel() {
     private val conditionList: MutableLiveData<MutableList<ConditionModel>> by lazy {
         MutableLiveData<MutableList<ConditionModel>>().also {
             it.value = mutableListOf<ConditionModel>(
-                ConditionModel("Buy","if","daily","price","5%","greater than","weekly","price"),
-                ConditionModel("Sell","if","weekly","avg","1%","less than","weekly","price"),
-                ConditionModel("Buy","if","weekly","price","10%","greater than","weekly","avg")
+                ConditionModel("Buy","if","daily","price","5%","greater than","weekly","price","$100.00"),
+                ConditionModel("Sell","if","weekly","avg","1%","less than","weekly","price","$50.00"),
+                ConditionModel("Buy","if","weekly","price","10%","greater than","weekly","avg","$3.00")
             )
         }
     }

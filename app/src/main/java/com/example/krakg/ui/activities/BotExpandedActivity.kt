@@ -61,7 +61,7 @@ class BotExpandedActivity: AppCompatActivity() {
             }
 
             R.id.add_condition->{
-                ConditionMakerViewModel.addConditions(ConditionModel("Sell","if","daily","avg","40%","greater than","monthly","avg"))
+                ConditionMakerViewModel.addConditions(ConditionModel("Sell","if","daily","avg","40%","greater than","monthly","avg","$300.00"))
             }
         }
         return true

@@ -6,7 +6,7 @@ data class ExpandedBotCardModel(
     @SerializedName("title")
     var title: String,
     @SerializedName("value")
-    var value: Double,
+    var value: Any,
     @SerializedName("prefix")
     var prefix: String?,
     @SerializedName("suffix")
@@ -15,6 +15,7 @@ data class ExpandedBotCardModel(
     var hasasset: Boolean,
     @SerializedName("asset")
     var asset: Unit?
+
 )
 
 
