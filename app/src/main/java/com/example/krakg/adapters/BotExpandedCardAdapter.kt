@@ -63,8 +63,9 @@ class BotExpandedCardAdapter( private val context: Context): RecyclerView.Adapte
                         val tempBool = !(indicatorList[position].value.toString().toBoolean())
                         tempBool.log()
                         val tempIndicator = indicatorList[position]
-                        tempIndicator.value =  !tempBool
+                        tempIndicator.value =  tempBool
                         ExpandedBotViewModel.updateIndicator(position, tempIndicator)
+                        notifyDataSetChanged()
                     }
                     8->{
                         (context as AppCompatActivity).supportFragmentManager.beginTransaction()
