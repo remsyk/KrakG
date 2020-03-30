@@ -1,19 +1,17 @@
-package com.example.krakg
+package com.example.krakg.view_models
 
 import android.annotation.SuppressLint
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.krakg.models.BotModel
+import androidx.lifecycle.ViewModel
+import com.example.krakg.log
 import com.example.krakg.retrofit.RetrofitFactory
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-object DataManager {
+class DashboardViewModel : ViewModel() {
 
-
-    val retrofitInterface by lazy {
-        RetrofitFactory.create()
-    }
 
     @SuppressLint("CheckResult")
     fun getServerTime() {
@@ -27,4 +25,14 @@ object DataManager {
             )
     }
 
+    private val _text = MutableLiveData<String>().apply {
+        value = "This is dashboard Fragment"
+    }
+    val text: LiveData<String> = _text
+
+    companion object{
+        val retrofitInterface by lazy {
+            RetrofitFactory.create()
+        }
+    }
 }

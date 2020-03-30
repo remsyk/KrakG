@@ -4,7 +4,7 @@ import android.app.IntentService
 import android.content.Context
 import android.content.Intent
 import android.os.Handler
-import com.example.krakg.DataManager
+import com.example.krakg.view_models.DashboardViewModel
 
 /**
  * A constructor is required, and must call the super [android.app.IntentService.IntentService]
@@ -16,8 +16,8 @@ class TestService : IntentService("TestService") {
     val handler = Handler()
     val runnableCode = object : Runnable {
         override fun run() {
-            DataManager.retrofitInterface.getServerTime()
-            handler.postDelayed(this, 5000)
+           /* DashboardViewModel.retrofitInterface.getServerTime()
+            handler.postDelayed(this, 5000)*/
         }
     }
 

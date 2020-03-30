@@ -1,4 +1,4 @@
-package com.example.krakg.ui.fragments.bots_expanded
+package com.example.krakg.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,10 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.krakg.R
 import com.example.krakg.adapters.BotExpandedCardAdapter
-import com.example.krakg.models.ConditionModel
 import com.example.krakg.models.ExpandedBotCardModel
 import kotlinx.android.synthetic.main.fragment_bot_expanded.*
 import androidx.lifecycle.Observer
+import com.example.krakg.view_models.ExpandedBotViewModel
 
 
 class BotExpandedFragment: Fragment() {

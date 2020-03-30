@@ -1,8 +1,7 @@
-package com.example.krakg.ui.fragments.bots
+package com.example.krakg.view_models
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.krakg.log
 import com.example.krakg.models.BotModel
 
 object BotsViewModel : ViewModel() {
@@ -19,10 +18,12 @@ object BotsViewModel : ViewModel() {
 
     fun addBot (botModel: BotModel){
         botList.value!!.add(botModel)
-        botList.postValue(botList.value)
+        botList.postValue(
+            botList.value)
     }
 
 
-    fun getBots(): MutableLiveData<MutableList<BotModel>> = botList
+    fun getBots(): MutableLiveData<MutableList<BotModel>> =
+        botList
 
 }

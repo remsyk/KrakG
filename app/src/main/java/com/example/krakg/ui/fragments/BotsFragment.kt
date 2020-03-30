@@ -1,4 +1,4 @@
-package com.example.krakg.ui.fragments.bots
+package com.example.krakg.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,16 +7,12 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.krakg.adapters.BotCardAdapter
-import com.example.krakg.DataManager
 import com.example.krakg.R
-import com.example.krakg.log
 import com.example.krakg.models.BotModel
-import com.example.krakg.ui.fragments.dashboard.DashboardViewModel
+import com.example.krakg.view_models.BotsViewModel
 import kotlinx.android.synthetic.main.fragment_bots.*
-import kotlinx.android.synthetic.main.viewgroup_actionbar_bots.*
 
 class BotsFragment : Fragment() {
 

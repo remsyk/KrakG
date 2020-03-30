@@ -1,17 +1,8 @@
-package com.example.krakg.ui.fragments.bots_expanded
+package com.example.krakg.view_models
 
-import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.krakg.DataManager
-import com.example.krakg.log
-import com.example.krakg.models.BotModel
-import com.example.krakg.models.ConditionModel
 import com.example.krakg.models.ExpandedBotCardModel
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
-import okhttp3.internal.notify
 
 object ExpandedBotViewModel : ViewModel() {
 
@@ -35,19 +26,23 @@ object ExpandedBotViewModel : ViewModel() {
 
     fun addIndicator (expandedBotCardModel: ExpandedBotCardModel){
         expandedBotIndicatorList.value!!.add(expandedBotCardModel)
-        expandedBotIndicatorList.postValue(expandedBotIndicatorList.value)
+        expandedBotIndicatorList.postValue(
+            expandedBotIndicatorList.value)
     }
 
     fun removeIndicator(position:Int){
         expandedBotIndicatorList.value!!.removeAt(position)
-        expandedBotIndicatorList.postValue(expandedBotIndicatorList.value)
+        expandedBotIndicatorList.postValue(
+            expandedBotIndicatorList.value)
     }
 
     fun updateIndicator(position: Int,indicator: ExpandedBotCardModel ){
         expandedBotIndicatorList.value!![position] = indicator
-        expandedBotIndicatorList.postValue(expandedBotIndicatorList.value)
+        expandedBotIndicatorList.postValue(
+            expandedBotIndicatorList.value)
     }
 
-    fun getInidcators(): MutableLiveData<MutableList<ExpandedBotCardModel>> = expandedBotIndicatorList
+    fun getInidcators(): MutableLiveData<MutableList<ExpandedBotCardModel>> =
+        expandedBotIndicatorList
 
 }

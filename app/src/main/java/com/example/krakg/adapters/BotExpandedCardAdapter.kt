@@ -11,10 +11,9 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.krakg.R
 import com.example.krakg.log
-import com.example.krakg.models.ConditionModel
 import com.example.krakg.models.ExpandedBotCardModel
-import com.example.krakg.ui.fragments.bots_expanded.ConditionMakerFragment
-import com.example.krakg.ui.fragments.bots_expanded.ExpandedBotViewModel
+import com.example.krakg.ui.fragments.ConditionMakerFragment
+import com.example.krakg.view_models.ExpandedBotViewModel
 import kotlinx.android.synthetic.main.cardview_bot_expanded_item.view.*
 
 class BotExpandedCardAdapter( private val context: Context): RecyclerView.Adapter<BotExpandedCardAdapter.ViewHolder>() {
@@ -60,16 +59,18 @@ class BotExpandedCardAdapter( private val context: Context): RecyclerView.Adapte
                 when(position){
 
                     7 -> {
-                        "this was pressed".log()
-                        val tempInidicator = indicatorList[position]
-                        tempInidicator.value = false
 
-                        ExpandedBotViewModel.updateIndicator(position, tempInidicator)
-
+                        val tempBool = !(indicatorList[position].value.toString().toBoolean())
+                        tempBool.log()
+                        val tempIndicator = indicatorList[position]
+                        tempIndicator.value =  !tempBool
+                        ExpandedBotViewModel.updateIndicator(position, tempIndicator)
                     }
                     8->{
                         (context as AppCompatActivity).supportFragmentManager.beginTransaction()
-                            .replace(R.id.framelayout_generic_layout, ConditionMakerFragment())
+                            .replace(R.id.framelayout_generic_layout,
+                                ConditionMakerFragment()
+                            )
                             .addToBackStack("Fragment")
                             .commit()
                     }

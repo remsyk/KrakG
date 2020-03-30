@@ -1,4 +1,4 @@
-package com.example.krakg.ui.fragments.settings
+package com.example.krakg.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.krakg.R
+import com.example.krakg.view_models.SettingsViewModel
 
 class SettingsFragment : Fragment() {
 

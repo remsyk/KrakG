@@ -1,16 +1,8 @@
-package com.example.krakg.ui.fragments.bots_expanded
+package com.example.krakg.view_models
 
-import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.krakg.DataManager
-import com.example.krakg.log
-import com.example.krakg.models.BotModel
 import com.example.krakg.models.ConditionModel
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
-import okhttp3.internal.notify
 
 object ConditionMakerViewModel : ViewModel() {
 
@@ -27,15 +19,18 @@ object ConditionMakerViewModel : ViewModel() {
 
     fun addConditions (conditionModel: ConditionModel){
         conditionList.value!!.add(conditionModel)
-        conditionList.postValue(conditionList.value)
+        conditionList.postValue(
+            conditionList.value)
     }
 
     fun removeCondition(position:Int){
         conditionList.value!!.removeAt(position)
-        conditionList.postValue(conditionList.value)
+        conditionList.postValue(
+            conditionList.value)
     }
 
 
-    fun getConditions(): MutableLiveData<MutableList<ConditionModel>> = conditionList
+    fun getConditions(): MutableLiveData<MutableList<ConditionModel>> =
+        conditionList
 
 }
