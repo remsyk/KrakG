@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.krakg.R
 import com.example.krakg.adapters.DashboardCardAdapter
+import com.example.krakg.log
 import com.example.krakg.view_models.DashboardViewModel
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 
@@ -33,15 +34,19 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-            ViewModelProviders.of(this).get(DashboardViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
+
+
+        DashboardViewModel.getBotName().log()
+
+        /* dashboardViewModel =
+             ViewModelProviders.of(this).get(DashboardViewModel::class.java)
+         val root = inflater.inflate(R.layout.fragment_dashboard, container, false)*/
 
        /* val textView: TextView = root.findViewById(R.id.text_dashboard)
         dashboardViewModel.text.observe(activity!!, Observer {
             textView.text = it
         })*/
-        return root
+        return  inflater.inflate(R.layout.fragment_dashboard, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

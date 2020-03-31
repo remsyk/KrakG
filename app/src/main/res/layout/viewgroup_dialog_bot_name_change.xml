@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="7dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:placeholderText="Best Bot Ever">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editText_change_value"
+            android:layout_width="150dp"
+            android:padding="16dp"
+            android:inputType="text"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>

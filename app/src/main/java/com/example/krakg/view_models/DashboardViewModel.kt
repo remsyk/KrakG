@@ -9,9 +9,13 @@ import com.example.krakg.log
 import com.example.krakg.retrofit.RetrofitFactory
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import retrofit2.awaitResponse
 
-class DashboardViewModel : ViewModel() {
+object DashboardViewModel : ViewModel() {
 
+    val retrofitInterface by lazy {
+        RetrofitFactory.create()
+    }
 
     @SuppressLint("CheckResult")
     fun getServerTime() {
@@ -28,11 +32,9 @@ class DashboardViewModel : ViewModel() {
     private val _text = MutableLiveData<String>().apply {
         value = "This is dashboard Fragment"
     }
-    val text: LiveData<String> = _text
+    //val text: LiveData<String> = _text
 
-    companion object{
-        val retrofitInterface by lazy {
-            RetrofitFactory.create()
-        }
-    }
+    fun getBotName():String = retrofitInterface.getBotName("https://wunameaas.herokuapp.com/wuami/:from").toString()
 }
+
+

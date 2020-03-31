@@ -19,7 +19,7 @@
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/design_menu_item"
+        android:id="@+id/design_menu_item_dashboard"
         android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
