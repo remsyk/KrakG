@@ -14,12 +14,9 @@ interface RetrofitInterface {
     @GET("/0/public/Time")
     fun getServerTime(): Observable<String>
 
-    @Headers("Accept:text/plain")
-    @GET
-    fun getBotName(@Url url: String ): Observable<String>
 
     @Headers("Accept:text/plain")
     @GET
-    fun getBotName2(@Url url: String ): Deferred<String>
+    fun getBotName(@Url url: String ): Deferred<String>
 
 }

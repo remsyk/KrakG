@@ -46,7 +46,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         design_menu_item_add.setOnClickListener {
-            BotsViewModel.addBot(BotModel("Bot 7",1.3,"BTC>LTC","$51.54","+1.3%"))
+            DashboardViewModel.getBotName {
+                BotsViewModel.addBot(BotModel(it, 1.3, "BTC>LTC", "$51.54", "+1.3%"))
+            }
         }
 
         return super.onCreateOptionsMenu(menu)

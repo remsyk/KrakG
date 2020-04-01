@@ -10,9 +10,9 @@ object BotsViewModel : ViewModel() {
     private val botList: MutableLiveData<MutableList<BotModel>> by lazy {
         MutableLiveData<MutableList<BotModel>>().also {
             it.value = mutableListOf<BotModel>(
-                BotModel("Bot 1",1.3,"BTC>LTC","$370.90","+4.3%"),
-                BotModel("Bot 2",1.3,"BTC>LTC","$428.60","-8.3%"),
-                BotModel("Bot 3",1.3,"BTC>LTC","$51.54","+1.3%"))
+                BotModel("Intellectual Dominator",1.3,"BTC>LTC","$370.90","+4.3%"),
+                BotModel("B Money",1.3,"BTC>LTC","$428.60","-8.3%"),
+                BotModel("Respected Knight",1.3,"BTC>LTC","$51.54","+1.3%"))
         }
     }
 

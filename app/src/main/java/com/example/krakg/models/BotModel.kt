@@ -12,5 +12,7 @@ data class BotModel(
     @SerializedName("value")
     var value: String?,
     @SerializedName("gross")
-    var gross: String
+    var gross: String,
+    @SerializedName("expandedBot")
+    var expandedBot: ExpandedBotCardModel
 )

@@ -42,7 +42,7 @@ object DashboardViewModel : ViewModel() {
     fun getBotName(callBack: (String) -> Unit) {
         val randomUUI = java.util.UUID.randomUUID().toString()
         CoroutineScope(Dispatchers.IO).launch {
-            val response = retrofitInterface.getBotName2("https://wunameaas.herokuapp.com/wuami/:$randomUUI").await()
+            val response = retrofitInterface.getBotName("https://wunameaas.herokuapp.com/wuami/:$randomUUI").await()
             withContext(Dispatchers.Main) {
                 callBack(response)
             }
