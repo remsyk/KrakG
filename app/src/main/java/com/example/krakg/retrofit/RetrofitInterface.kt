@@ -1,6 +1,7 @@
 package com.example.krakg.retrofit
 
 import io.reactivex.Observable
+import kotlinx.coroutines.Deferred
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers
@@ -13,8 +14,12 @@ interface RetrofitInterface {
     @GET("/0/public/Time")
     fun getServerTime(): Observable<String>
 
+    @Headers("Accept:text/plain")
     @GET
-    fun getBotName(@Url url: String ): Call<String>
+    fun getBotName(@Url url: String ): Observable<String>
 
+    @Headers("Accept:text/plain")
+    @GET
+    fun getBotName2(@Url url: String ): Deferred<String>
 
 }

@@ -12,6 +12,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.krakg.R
 import com.example.krakg.log
 import com.example.krakg.models.BotModel
+import com.example.krakg.services.TestService
 import com.example.krakg.view_models.BotsViewModel
 import com.example.krakg.view_models.DashboardViewModel
 import kotlinx.android.synthetic.main.viewgroup_actionbar_bots.*
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
+
 
         supportActionBar!!.setDisplayShowTitleEnabled(false)
         supportActionBar!!.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
@@ -46,13 +48,6 @@ class MainActivity : AppCompatActivity() {
         design_menu_item_add.setOnClickListener {
             BotsViewModel.addBot(BotModel("Bot 7",1.3,"BTC>LTC","$51.54","+1.3%"))
         }
-
-        if (design_menu_item_dashboard != null) {
-                design_menu_item_dashboard.setOnClickListener {
-                    "weee".log()
-                    DashboardViewModel.getBotName().log()
-                }
-            }
 
         return super.onCreateOptionsMenu(menu)
     }

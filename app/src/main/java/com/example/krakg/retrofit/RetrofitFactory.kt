@@ -19,7 +19,6 @@ object RetrofitFactory {
     private var gson = GsonBuilder().setLenient().create()!!
 
     fun create(): RetrofitInterface {
-        Log.i(TAG, "create: ")
         val retrofit = Builder()
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(ScalarsConverterFactory.create())

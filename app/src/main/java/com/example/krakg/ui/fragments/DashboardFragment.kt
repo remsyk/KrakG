@@ -13,15 +13,22 @@ import com.example.krakg.adapters.DashboardCardAdapter
 import com.example.krakg.log
 import com.example.krakg.view_models.DashboardViewModel
 import kotlinx.android.synthetic.main.fragment_dashboard.*
+import androidx.lifecycle.Observer
+import com.example.krakg.services.TestService
+
 
 class DashboardFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
     private val myList = listOf("Title One", "Title Two", "Title Three", "Title Four")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         (activity as AppCompatActivity).supportActionBar!!.setCustomView(R.layout.viewgroup_actionbar_dashboard)
+
+        DashboardViewModel.getBotName {
+            it.log()
+        }
+
     }
 
     override fun onResume() {
@@ -34,28 +41,16 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-
-        DashboardViewModel.getBotName().log()
-
-        /* dashboardViewModel =
-             ViewModelProviders.of(this).get(DashboardViewModel::class.java)
-         val root = inflater.inflate(R.layout.fragment_dashboard, container, false)*/
-
-       /* val textView: TextView = root.findViewById(R.id.text_dashboard)
-        dashboardViewModel.text.observe(activity!!, Observer {
-            textView.text = it
-        })*/
-        return  inflater.inflate(R.layout.fragment_dashboard, container, false)
+        return inflater.inflate(R.layout.fragment_dashboard, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recyclerView_dashboard.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
+        recyclerView_dashboard.layoutManager =
+            StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
         val adapter = DashboardCardAdapter(myList, activity!!)
         recyclerView_dashboard.adapter = adapter
-
 
     }
 }

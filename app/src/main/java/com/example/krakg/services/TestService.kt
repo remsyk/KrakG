@@ -4,6 +4,7 @@ import android.app.IntentService
 import android.content.Context
 import android.content.Intent
 import android.os.Handler
+import com.example.krakg.log
 import com.example.krakg.view_models.DashboardViewModel
 
 /**
@@ -16,7 +17,7 @@ class TestService : IntentService("TestService") {
     val handler = Handler()
     val runnableCode = object : Runnable {
         override fun run() {
-           /* DashboardViewModel.retrofitInterface.getServerTime()
+           /* DashboardViewModel.getServerTime()
             handler.postDelayed(this, 5000)*/
         }
     }

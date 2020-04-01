@@ -7,9 +7,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.krakg.log
 import com.example.krakg.retrofit.RetrofitFactory
+import com.example.krakg.services.TestService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import retrofit2.awaitResponse
+import java.util.*
 
 object DashboardViewModel : ViewModel() {
 
@@ -18,23 +24,32 @@ object DashboardViewModel : ViewModel() {
     }
 
     @SuppressLint("CheckResult")
-    fun getServerTime() {
-        "we got here".log()
+    fun getServerTime(): MutableLiveData<String> {
+        val serverTime: MutableLiveData<String> = MutableLiveData("No Time Yet!")
         retrofitInterface.getServerTime()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
-                { response -> response.log() },
-                { error -> Log.e("ApiHandler", "API request error", error) }
+                { response -> serverTime.value = response },
+                { error -> Log.e("DashboardViewModel", "API request error", error) }
             )
+        return serverTime
     }
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
-    }
-    //val text: LiveData<String> = _text
 
-    fun getBotName():String = retrofitInterface.getBotName("https://wunameaas.herokuapp.com/wuami/:from").toString()
+
+
+    fun getBotName(callBack: (String) -> Unit) {
+        val randomUUI = java.util.UUID.randomUUID().toString()
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = retrofitInterface.getBotName2("https://wunameaas.herokuapp.com/wuami/:$randomUUI").await()
+            withContext(Dispatchers.Main) {
+                callBack(response)
+            }
+        }
+    }
+
+
 }
 
 
