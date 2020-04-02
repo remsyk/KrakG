@@ -14,5 +14,5 @@ data class BotModel(
     @SerializedName("gross")
     var gross: String,
     @SerializedName("expandedBot")
-    var expandedBot: ExpandedBotCardModel
+    var expandedBot: MutableList<ExpandedBotCardModel>? //TODO set to null for lack of local database
 )

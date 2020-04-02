@@ -19,7 +19,6 @@ object ExpandedBotViewModel : ViewModel() {
                 ExpandedBotCardModel("Time Up", 100.23, null, "sec", false, null),
                 ExpandedBotCardModel("Paper Trading", "True", null, null, false, null),
                 ExpandedBotCardModel("Conditions List", 5, null, null, true, null)
-
             )
         }
     }
