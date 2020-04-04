@@ -2,6 +2,7 @@ package com.example.krakg.ui.activities
 
 import android.os.Bundle
 import android.view.Menu
+import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -47,6 +48,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         design_menu_item_add.setOnClickListener {
             DashboardViewModel.getBotName {
+                Toast.makeText(this,"Bot Added",Toast.LENGTH_SHORT).show()
                 BotsViewModel.addBot(BotModel(it, 1.3, "BTC>LTC", "$51.54", "+1.3%",null))
             }
         }

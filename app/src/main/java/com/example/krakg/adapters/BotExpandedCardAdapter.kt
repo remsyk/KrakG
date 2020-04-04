@@ -13,6 +13,7 @@ import com.example.krakg.R
 import com.example.krakg.log
 import com.example.krakg.models.ExpandedBotCardModel
 import com.example.krakg.ui.fragments.ConditionMakerFragment
+import com.example.krakg.ui.fragments.TradesListFragment
 import com.example.krakg.ui.fragments.dialogs.ConditionNameChangeDialog
 import com.example.krakg.view_models.ExpandedBotViewModel
 import kotlinx.android.synthetic.main.cardview_bot_expanded_item.view.*
@@ -62,14 +63,23 @@ class BotExpandedCardAdapter( private val context: Context): RecyclerView.Adapte
                         ConditionNameChangeDialog.show((context as AppCompatActivity).supportFragmentManager )
                     }
 
-                    7 -> {
+                    6 ->{
+                        (context as AppCompatActivity).supportFragmentManager.beginTransaction()
+                            .replace(R.id.framelayout_generic_layout,
+                                TradesListFragment()
+                            )
+                            .addToBackStack("TradesListFragment")
+                            .commit()
+                    }
+
+                    8 -> {
 
                         val tempBool = !(indicatorList[position].value.toString().toBoolean())
                         val tempIndicator = indicatorList[position]
                         tempIndicator.value =  tempBool
                         ExpandedBotViewModel.updateIndicator(position, tempIndicator)
                     }
-                    8->{
+                    9->{
                         (context as AppCompatActivity).supportFragmentManager.beginTransaction()
                             .replace(R.id.framelayout_generic_layout,
                                 ConditionMakerFragment()

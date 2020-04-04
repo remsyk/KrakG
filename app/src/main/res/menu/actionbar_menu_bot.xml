@@ -10,4 +10,5 @@
         android:icon="@drawable/ic_add_24px"
         android:title="Add Condition"
         app:showAsAction="ifRoom" />
+
 </menu>

@@ -22,6 +22,12 @@ object BotsViewModel : ViewModel() {
             botList.value)
     }
 
+    fun removeBot(position:Int){
+        botList.value!!.removeAt(position)
+        botList.postValue(
+            botList.value)
+    }
+
 
     fun getBots(): MutableLiveData<MutableList<BotModel>> =
         botList

@@ -11,6 +11,7 @@ import com.example.krakg.adapters.BotExpandedCardAdapter
 import com.example.krakg.models.ExpandedBotCardModel
 import kotlinx.android.synthetic.main.fragment_bot_expanded.*
 import androidx.lifecycle.Observer
+import com.example.krakg.ui.activities.BotExpandedActivity.Companion.setActionBarMenuOptions
 import com.example.krakg.view_models.ExpandedBotViewModel
 
 
@@ -24,6 +25,7 @@ class BotExpandedFragment: Fragment() {
         val root = inflater.inflate(R.layout.fragment_bot_expanded, container, false)
         return root
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

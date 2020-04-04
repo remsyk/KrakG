@@ -13,6 +13,8 @@ import com.example.krakg.ui.fragments.LineChartActivity
 import com.example.krakg.R
 import com.example.krakg.models.BotModel
 import com.example.krakg.ui.activities.BotExpandedActivity
+import com.example.krakg.ui.fragments.dialogs.BotRemoveDialog
+import com.example.krakg.view_models.BotsViewModel
 import kotlinx.android.synthetic.main.cardview_bot.view.*
 import kotlinx.android.synthetic.main.viewgroup_cardview_bot_bottom.view.*
 
@@ -47,6 +49,14 @@ class BotCardAdapter(
 
             botCard.setOnClickListener {
                 context.startActivity(Intent(context, BotExpandedActivity::class.java))
+            }
+            botCard.setOnLongClickListener {
+                BotRemoveDialog.show(context.supportFragmentManager).getValue={
+                    if(it){
+                        BotsViewModel.removeBot(position)
+                    }
+                }
+                true
             }
         }
     }
