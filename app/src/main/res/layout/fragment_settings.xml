@@ -19,6 +19,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:textAlignment="center"
+            android:text="Settings"
             android:textSize="@dimen/title_large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -71,7 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="28dp"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_marginBottom="8dp"
             android:background="@color/gray"
             app:layout_constraintBottom_toTopOf="@+id/textview_transfer_funds"
             app:layout_constraintEnd_toEndOf="parent"
@@ -83,6 +84,8 @@
             android:id="@+id/textview_transfer_funds"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textSize="@dimen/title"
             android:text="Transfer Funds"
             app:layout_constraintBottom_toTopOf="@+id/textLayout_wallet_transfer"
             app:layout_constraintEnd_toEndOf="parent"
@@ -123,6 +126,7 @@
             app:layout_constraintBottom_toBottomOf="@id/switch_set_interval">
 
             <AutoCompleteTextView
+                android:inputType="none"
                 android:id="@+id/filled_exposed_dropdown"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
