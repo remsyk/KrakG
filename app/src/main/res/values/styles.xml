@@ -21,4 +21,9 @@
         <item name="android:colorControlActivated">@color/colorPrimaryDark</item>
     </style>
 
+    <style name="SwitchStyle" parent="@style/Widget.AppCompat.CompoundButton.Switch">
+        <item name="android:progressBackgroundTint">@color/colorPrimary</item>
+        <item name="android:colorControlActivated">@color/colorPrimaryDark</item>
+    </style>
+
 </resources>

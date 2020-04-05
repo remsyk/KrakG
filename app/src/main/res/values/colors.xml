@@ -3,6 +3,11 @@
     <color name="colorPrimary">#51C4F2</color>
     <color name="colorPrimaryDark">#0093bf</color>
     <color name="colorAccent">#FFFFFF</color>
+    <color name="colorComplementary">#f27f51</color>
+    <color name="colorAnalogous">#51f2cf</color>
+    <color name="colorTriadic">#7f51f2</color>
+    <color name="colorDarkComplementary">#bf2d00</color>
+    <color name="colorDarkTriadic">#2d00bf</color>
     <color name="white">#FFFFFF</color>
     <color name="yellow">#FFFF00</color>
     <color name="red">#D0021B</color>

@@ -9,7 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/text_title"
@@ -66,17 +66,117 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
-        <com.google.android.material.textview.MaterialTextView
+        <View
+            android:id="@+id/divider_transfer"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:background="@color/grayTransparent"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:text="Error Log"
+            android:layout_height="1dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:background="@color/gray"
+            app:layout_constraintBottom_toTopOf="@+id/textview_transfer_funds"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textLayout_wallet" />
+            app:layout_constraintTop_toBottomOf="@+id/textLayout_wallet" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textview_transfer_funds"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Transfer Funds"
+            app:layout_constraintBottom_toTopOf="@+id/textLayout_wallet_transfer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_transfer" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textLayout_wallet_transfer"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Wallet Hash"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_transfer_funds"
+            app:placeholderText="44720defbb6ed0ed2e0f49184c631f42">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/body" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/picker_interval"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            app:layout_constraintEnd_toStartOf="@id/switch_set_interval"
+            app:layout_constraintTop_toTopOf="@id/switch_set_interval"
+            app:layout_constraintBottom_toBottomOf="@id/switch_set_interval">
+
+            <AutoCompleteTextView
+                android:id="@+id/filled_exposed_dropdown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <Switch
+            android:id="@+id/switch_set_interval"
+            android:layout_width="wrap_content"
+            android:theme="@style/SwitchStyle"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="28dp"
+            android:layout_marginBottom="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textLayout_wallet_transfer"
+            app:layout_constraintBottom_toTopOf="@+id/button_transfer_funds"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_transfer_funds"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Transfer Funds"
+            android:backgroundTint="@color/colorPrimaryDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/divider_transfer_2" />
+
+        <View
+            android:id="@+id/divider_transfer_2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginBottom="28dp"
+            android:background="@color/gray"
+            app:layout_constraintBottom_toTopOf="@+id/button_stop_everything"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_stop_everything"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorDarkTriadic"
+            android:text="Stop Everything"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
