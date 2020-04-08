@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:elevation="0dp"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/transparent"
+        android:drawableTop="@drawable/ic_pause_circle_outline_24px"
+        android:layout_margin="8dp"
+        style="?android:attr/borderlessButtonStyle"
+        android:text="Stop All"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:backgroundTint="@color/transparent"
+        android:drawableTop="@drawable/ic_import_export_24px"
+        android:textColor="@color/black"
+        android:layout_margin="8dp"
+        android:elevation="0dp"
+        style="?android:attr/borderlessButtonStyle"
+        android:text="Export Bots"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:backgroundTint="@color/transparent"
+        android:drawableTop="@drawable/ic_import_contacts_24px"
+        android:textColor="@color/black"
+        android:layout_margin="8dp"
+        style="?android:attr/borderlessButtonStyle"
+        android:text="Import Bots"/>
+
+
+</LinearLayout>

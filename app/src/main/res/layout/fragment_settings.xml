@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/activity_horizontal_margin"
-    android:layout_marginEnd="@dimen/activity_horizontal_margin">
+    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+    android:layout_marginBottom="60dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <include
+            android:id="@+id/include_button_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/viewgroup_setting_button_panel"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
             android:id="@+id/text_title"
@@ -18,12 +28,12 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+            android:text="Kraken Api"
             android:textAlignment="center"
-            android:text="Settings"
-            android:textSize="@dimen/title_large"
+            android:textSize="@dimen/title_medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/include_button_panel" />
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -70,7 +80,7 @@
         <View
             android:id="@+id/divider_transfer"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="2dp"
             android:layout_marginTop="28dp"
             android:layout_marginBottom="8dp"
             android:background="@color/gray"
@@ -85,8 +95,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:textSize="@dimen/title"
             android:text="Transfer Funds"
+            android:textSize="@dimen/title_medium"
             app:layout_constraintBottom_toTopOf="@+id/textLayout_wallet_transfer"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -114,22 +124,45 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textLayout_wallet_transfer_amount"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:hint="Amount in BTC"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/picker_interval"
+            app:layout_constraintEnd_toStartOf="@+id/picker_interval"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/picker_interval"
+            app:placeholderText="1.5253">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/body" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/picker_interval"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="wrap_content"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
             android:layout_marginTop="@dimen/activity_vertical_margin"
             android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:hint="Transfer Interval"
+            app:layout_constraintBottom_toBottomOf="@id/switch_set_interval"
             app:layout_constraintEnd_toStartOf="@id/switch_set_interval"
-            app:layout_constraintTop_toTopOf="@id/switch_set_interval"
-            app:layout_constraintBottom_toBottomOf="@id/switch_set_interval">
+            app:layout_constraintTop_toTopOf="@id/switch_set_interval">
 
             <AutoCompleteTextView
-                android:inputType="none"
                 android:id="@+id/filled_exposed_dropdown"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="none" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -137,50 +170,37 @@
         <Switch
             android:id="@+id/switch_set_interval"
             android:layout_width="wrap_content"
-            android:theme="@style/SwitchStyle"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
-            android:layout_marginEnd="28dp"
             android:layout_marginBottom="28dp"
+            android:theme="@style/SwitchStyle"
+            app:layout_constraintBottom_toTopOf="@+id/button_transfer_funds"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textLayout_wallet_transfer"
-            app:layout_constraintBottom_toTopOf="@+id/button_transfer_funds"/>
+            app:layout_constraintTop_toBottomOf="@+id/textLayout_wallet_transfer" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_transfer_funds"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Transfer Funds"
             android:backgroundTint="@color/colorPrimaryDark"
+            android:text="Transfer Funds"
+            app:layout_constraintBottom_toTopOf="@id/divider_transfer_2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/divider_transfer_2" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <View
             android:id="@+id/divider_transfer_2"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="2dp"
             android:layout_marginTop="@dimen/activity_vertical_margin"
             android:layout_marginBottom="28dp"
             android:background="@color/gray"
-            app:layout_constraintBottom_toTopOf="@+id/button_stop_everything"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-
-            />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_stop_everything"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorDarkTriadic"
-            android:text="Stop Everything"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent" />
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

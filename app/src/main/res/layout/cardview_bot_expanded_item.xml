@@ -41,8 +41,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/title_x_large"
                 android:textStyle="bold"
-                android:paddingStart="4dp"
-                android:paddingTop="4dp"
+                android:padding="4dp"
                 android:text="+7.2%"/>
 
             <ImageView
@@ -51,11 +50,6 @@
                 android:layout_height="80dp"
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/ic_android_black_24dp"/>
-
-
-
-
-
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>

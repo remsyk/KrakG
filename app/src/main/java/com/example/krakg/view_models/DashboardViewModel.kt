@@ -37,8 +37,6 @@ object DashboardViewModel : ViewModel() {
     }
 
 
-
-
     fun getBotName(callBack: (String) -> Unit) {
         val randomUUI = java.util.UUID.randomUUID().toString()
         CoroutineScope(Dispatchers.IO).launch {
@@ -48,8 +46,6 @@ object DashboardViewModel : ViewModel() {
             }
         }
     }
-
-
 }
 
 

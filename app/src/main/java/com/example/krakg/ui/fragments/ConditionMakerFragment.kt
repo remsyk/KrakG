@@ -10,14 +10,14 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.krakg.R
 import com.example.krakg.adapters.ConditionAdapter
 import com.example.krakg.models.ConditionModel
-import com.example.krakg.ui.activities.BotExpandedActivity.Companion.setActionBarMenuOptions
+import com.example.krakg.ui.activities.BotExpandedActivity.Companion.setActionBarAddCondition
 import com.example.krakg.view_models.ConditionMakerViewModel
 import kotlinx.android.synthetic.main.fragment_bot_condition_maker.*
 
 class ConditionMakerFragment: Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        setActionBarMenuOptions(false)
+        setActionBarAddCondition(true)
         super.onCreate(savedInstanceState)
     }
 
@@ -32,7 +32,7 @@ class ConditionMakerFragment: Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        setActionBarMenuOptions(true)
+        setActionBarAddCondition(false)
     }
 
 

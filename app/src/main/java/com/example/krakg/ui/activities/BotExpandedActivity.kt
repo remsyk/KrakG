@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.krakg.R
 import com.example.krakg.log
@@ -33,7 +32,7 @@ class BotExpandedActivity: AppCompatActivity() {
 
         if (menu != null) {
             menuTest = menu
-            setActionBarMenuOptions(true)
+            setActionBarAddCondition(false)
         }
         return true
     }
@@ -57,7 +56,7 @@ class BotExpandedActivity: AppCompatActivity() {
                 }
             }
 
-            R.id.pause_bot ->{
+            R.id.indicator_list_info ->{
                 "pause bot".log()
 
             }
@@ -72,9 +71,10 @@ class BotExpandedActivity: AppCompatActivity() {
     companion object {
         lateinit var menuTest: Menu
 
-        fun setActionBarMenuOptions(visibility: Boolean) {
-            menuTest.findItem(R.id.pause_bot).isVisible = visibility
-            menuTest.findItem(R.id.add_condition).isVisible = !visibility
+        fun setActionBarAddCondition(visibility: Boolean) {
+            menuTest.findItem(R.id.add_condition).isVisible = visibility
+            menuTest.findItem(R.id.indicator_list_info).isVisible = visibility
+
         }
     }
 }

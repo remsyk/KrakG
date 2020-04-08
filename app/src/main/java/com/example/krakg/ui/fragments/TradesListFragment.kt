@@ -8,19 +8,16 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.krakg.R
-import com.example.krakg.adapters.ConditionAdapter
 import com.example.krakg.adapters.TradeListAdapter
-import com.example.krakg.models.ConditionModel
 import com.example.krakg.models.TradeItemModel
-import com.example.krakg.ui.activities.BotExpandedActivity.Companion.setActionBarMenuOptions
-import com.example.krakg.view_models.ConditionMakerViewModel
+import com.example.krakg.ui.activities.BotExpandedActivity.Companion.setActionBarAddCondition
 import com.example.krakg.view_models.TradeListViewModel
 import kotlinx.android.synthetic.main.fragment_bot_condition_maker.*
 
 class TradesListFragment: Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        setActionBarMenuOptions(true)
+        setActionBarAddCondition(false)
         super.onCreate(savedInstanceState)
     }
 
@@ -35,7 +32,7 @@ class TradesListFragment: Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        setActionBarMenuOptions(true)
+        setActionBarAddCondition(false)
     }
 
 

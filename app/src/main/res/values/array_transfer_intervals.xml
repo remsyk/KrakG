@@ -1,0 +1,12 @@
+<resources>
+    <string-array name="transfer_interval">
+        <item>Once immediately</item>
+        <item>Every day</item>
+        <item>Every other day</item>
+        <item>Once a week</item>
+        <item>Every other week</item>
+        <item>Once a month</item>
+        <item>Once every other month </item>
+    </string-array>
+
+</resources>

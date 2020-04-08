@@ -1,5 +1,6 @@
 package com.example.krakg.ui.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,9 +10,13 @@ import android.widget.AutoCompleteTextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.krakg.R
+import com.example.krakg.ui.activities.SettingsActivity
 import kotlinx.android.synthetic.main.fragment_settings.*
 import kotlinx.android.synthetic.main.fragment_settings.picker_interval
 import kotlinx.android.synthetic.main.fragment_settings.view.*
+import kotlinx.android.synthetic.main.fragment_settings_2.*
+import kotlinx.android.synthetic.main.viewgroup_setting_item_textviews.view.*
+import kotlinx.android.synthetic.main.viewgroup_settings_item.view.*
 
 
 class SettingsFragment : Fragment() {
@@ -31,15 +36,37 @@ class SettingsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_settings, container, false)
+        val root = inflater.inflate(R.layout.fragment_settings_2, container, false)
         return root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         with(view) {
-            val autoCompAdapter: ArrayAdapter<String> = ArrayAdapter<String>(context, R.layout.viewgroup_interval_autocomplete_item, resources.getStringArray(R.array.intervals))
-            filled_exposed_dropdown.setAdapter(autoCompAdapter)
+
+            include_notification_item.include_text_items.textview_title_settings.text = "Notifications"
+            include_notification_item.include_text_items.textview_subtitle_settings.text = "Set notification settings"
+            include_notification_item.setOnClickListener {
+                context.startActivity(Intent(context, SettingsActivity::class.java).putExtra("loadFragment", 1))
+            }
+
+            include_imports_item.include_text_items.textview_title_settings.text = "Imports/Exports"
+            include_imports_item.include_text_items.textview_subtitle_settings.text = "Here you can settle the imports and exports"
+            include_imports_item.setOnClickListener {
+                context.startActivity(Intent(context, SettingsActivity::class.java).putExtra("loadFragment", 2))
+            }
+
+            include_transfer_item.include_text_items.textview_title_settings.text = "Transfer Funds"
+            include_transfer_item.include_text_items.textview_subtitle_settings.text = "Transfer funds out of the bot"
+            include_transfer_item.setOnClickListener {
+                context.startActivity(Intent(context, SettingsActivity::class.java).putExtra("loadFragment", 3))
+            }
+
+            include_controls_item.include_text_items.textview_title_settings.text = "Control Panel"
+            include_controls_item.include_text_items.textview_subtitle_settings.text = "Other settings"
+            include_controls_item.setOnClickListener {
+                context.startActivity(Intent(context, SettingsActivity::class.java).putExtra("loadFragment", 4))
+            }
         }
     }
 }
