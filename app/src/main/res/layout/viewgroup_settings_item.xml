@@ -8,13 +8,13 @@
 
     <ImageView
         android:id="@+id/imageview_settings_item"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
         android:paddingBottom="8dp"
         android:paddingEnd="8dp"
         android:paddingTop="8dp"
         android:layout_alignParentStart="true"
-        android:src="@drawable/ic_android_black_24dp"/>
+        android:src="@drawable/ic_import_export_24px"/>
 
     <include
         android:id="@+id/include_text_items"

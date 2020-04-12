@@ -10,14 +10,8 @@ import android.widget.AutoCompleteTextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.krakg.R
-import kotlinx.android.synthetic.main.fragment_settings.*
-import kotlinx.android.synthetic.main.fragment_settings.view.*
-import kotlinx.android.synthetic.main.fragment_settings.*
-import kotlinx.android.synthetic.main.viewgroup_setting_item_textviews.view.*
-import kotlinx.android.synthetic.main.viewgroup_settings_item.view.*
 
-
-class TransferFundsFragment : Fragment() {
+class ControlPanelFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +28,7 @@ class TransferFundsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_transfer_funds, container, false)
+        val root = inflater.inflate(R.layout.fragment_control_panel, container, false)
         return root
     }
 

@@ -8,8 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.krakg.R
 import com.example.krakg.log
 import com.example.krakg.models.ConditionModel
-import com.example.krakg.ui.fragments.BotExpandedFragment
-import com.example.krakg.ui.fragments.TransferFundsFragment
+import com.example.krakg.ui.fragments.*
 import com.example.krakg.view_models.ConditionMakerViewModel
 
 
@@ -26,15 +25,15 @@ class SettingsActivity: AppCompatActivity() {
         when(loadFragment){
             1-> {
                 supportFragmentManager.beginTransaction().replace(R.id.framelayout_generic_layout,
-                    TransferFundsFragment()
-                ).addToBackStack("TransferFundsFragment").commit()
+                    NotificationsFragment()
+                ).addToBackStack("NotificationsFragment").commit()
                 supportActionBar!!.title = "Notifications"
 
             }
             2-> {
                 supportFragmentManager.beginTransaction().replace(R.id.framelayout_generic_layout,
-                    TransferFundsFragment()
-                ).addToBackStack("TransferFundsFragment").commit()
+                    InportExportFragment()
+                ).addToBackStack("InportExportFragment").commit()
                 supportActionBar!!.title = "Imports/Exports"
             }
             3-> {
@@ -46,11 +45,30 @@ class SettingsActivity: AppCompatActivity() {
             }
             4-> {
                 supportFragmentManager.beginTransaction().replace(R.id.framelayout_generic_layout,
-                    TransferFundsFragment()
-                ).addToBackStack("TransferFundsFragment").commit()
+                    ControlPanelFragment()
+                ).addToBackStack("ControlPanelFragment").commit()
                 supportActionBar!!.title = "Control Panel"
 
             }
         }
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            android.R.id.home ->{
+                finish()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onBackPressed() {
+        if(supportFragmentManager.backStackEntryCount ==1){
+            finish()
+        }else {
+            supportFragmentManager.popBackStack()
+        }
+    }
+
 }

@@ -6,7 +6,10 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
@@ -22,17 +25,18 @@ import kotlinx.android.synthetic.main.viewgroup_actionbar_dashboard.*
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var navController: NavController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
-
         supportActionBar!!.setDisplayShowTitleEnabled(false)
         supportActionBar!!.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
         supportActionBar!!.setCustomView(R.layout.viewgroup_actionbar_bots)
 
-        val navController = findNavController(R.id.nav_host_fragment)
+        navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
@@ -44,11 +48,23 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        val finalHose = NavHostFragment.create(R.navigation.mobile_navigation)
+
+        if (savedInstanceState != null) {
+            "got here".log()
+            navController.navigate(savedInstanceState.getInt("currentFragment"))
+        }
+    }
+
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("currentFragment", navController.currentDestination!!.id)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
-        if(design_menu_item_add != null) {
+        if (design_menu_item_add != null) {
             design_menu_item_add.setOnClickListener {
                 val progressBar = ProgressDialog.show(supportFragmentManager)
                 DashboardViewModel.getBotName {
