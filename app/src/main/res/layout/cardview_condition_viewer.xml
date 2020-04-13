@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview_condition"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:layout_marginBottom="4dp"
-        android:layout_marginTop="4dp"
-        app:cardCornerRadius="6dp"
-        android:elevation="10dp">
+        android:elevation="10dp"
+        app:cardCornerRadius="6dp">
 
         <LinearLayout
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp">
+            android:orientation="horizontal">
 
             <com.google.android.material.chip.ChipGroup
                 android:layout_width="match_parent"
@@ -33,54 +34,70 @@
                     android:id="@+id/chip_buy_sell"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Buy"/>
+                    android:text="Buy" />
+
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_if"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="If"/>
+                    android:text="If" />
+
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_interval1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Weekly"/>
+                    android:text="Weekly" />
+
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_indicator"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="price"/>
+                    android:text="price" />
+
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_change"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="5%"/>
+                    android:text="5%" />
+
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_operator"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="greater than"/>
+                    android:text="greater than" />
+
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_interval2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="weekly"/>
+                    android:text="weekly" />
+
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_indicator2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="price"/>
+                    android:text="price" />
+
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_for"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="for"/>
+                    android:text="for" />
+
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_amount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="amount"/>
+                    android:text="amount" />
 
             </com.google.android.material.chip.ChipGroup>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-</FrameLayout>
+
+    <include
+        android:id="@+id/include_condition_divider"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        layout="@layout/viewgroup_conditionmaker_divider"
+        />
+</LinearLayout>

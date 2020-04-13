@@ -48,7 +48,7 @@ class BotCardAdapter(
             chartModel.onCreate()
 
             botCard.setOnClickListener {
-                context.startActivity(Intent(context, BotExpandedActivity::class.java))
+                context.startActivity(Intent(context, BotExpandedActivity::class.java).putExtra("botName",botsList[position].title))
             }
             botCard.setOnLongClickListener {
                 BotRemoveDialog.show(context.supportFragmentManager).getValue={

@@ -14,14 +14,22 @@ import com.example.krakg.view_models.ConditionMakerViewModel
 
 class BotExpandedActivity: AppCompatActivity() {
 
+    private var loadFragment = "botName"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.framelayout_generic)
+        loadFragment = intent.getStringExtra("botName")!!
 
-        supportActionBar!!.setDisplayShowTitleEnabled(false)
+        supportActionBar!!.title = loadFragment
+        supportActionBar!!.setDisplayShowTitleEnabled(true)
 
         supportFragmentManager.beginTransaction().replace(R.id.framelayout_generic_layout,
-            BotExpandedFragment()
+            BotExpandedFragment().apply {
+                arguments = Bundle().apply {
+                    putString("theString", "weeee")
+                }
+            }
         ).addToBackStack("BotExpandedFragment").commit()
     }
 

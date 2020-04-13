@@ -59,11 +59,8 @@ class BotExpandedCardAdapter( private val context: Context): RecyclerView.Adapte
 
             card.setOnClickListener {
                 when(position){
-                    0->{
-                        ConditionNameChangeDialog.show((context as AppCompatActivity).supportFragmentManager )
-                    }
 
-                    6 ->{
+                    5 ->{
                         (context as AppCompatActivity).supportFragmentManager.beginTransaction()
                             .replace(R.id.framelayout_generic_layout,
                                 TradesListFragment()
@@ -72,14 +69,14 @@ class BotExpandedCardAdapter( private val context: Context): RecyclerView.Adapte
                             .commit()
                     }
 
-                    8 -> {
+                    7 -> {
 
                         val tempBool = !(indicatorList[position].value.toString().toBoolean())
                         val tempIndicator = indicatorList[position]
                         tempIndicator.value =  tempBool
                         ExpandedBotViewModel.updateIndicator(position, tempIndicator)
                     }
-                    9->{
+                    8->{
                         (context as AppCompatActivity).supportFragmentManager.beginTransaction()
                             .replace(R.id.framelayout_generic_layout,
                                 ConditionMakerFragment()

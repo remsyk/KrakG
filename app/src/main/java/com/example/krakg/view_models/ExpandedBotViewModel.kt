@@ -9,7 +9,6 @@ object ExpandedBotViewModel : ViewModel() {
     private val expandedBotIndicatorList: MutableLiveData<MutableList<ExpandedBotCardModel>> by lazy {
         MutableLiveData<MutableList<ExpandedBotCardModel>>().also {
             it.value = mutableListOf<ExpandedBotCardModel>(
-                ExpandedBotCardModel("Name", "Winning Bot Name", null, null, false, null),
                 ExpandedBotCardModel("Net Change", 2.3, null, "%", false, null),
                 ExpandedBotCardModel("Gross", 800.2, "$",null, false, null),
                 ExpandedBotCardModel("Value", 4000.5, "$",null, false, null),

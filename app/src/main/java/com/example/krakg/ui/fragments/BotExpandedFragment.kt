@@ -1,5 +1,6 @@
 package com.example.krakg.ui.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,15 @@ import com.example.krakg.view_models.ExpandedBotViewModel
 
 
 class BotExpandedFragment: Fragment() {
+
+    lateinit var myString:String
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        arguments?.getString("theString")?.let {
+            myString = it
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
