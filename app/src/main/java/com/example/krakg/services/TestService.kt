@@ -11,7 +11,7 @@ import com.example.krakg.view_models.DashboardViewModel
  * A constructor is required, and must call the super [android.app.IntentService.IntentService]
  * constructor with a name for the worker thread.
  */
-class TestService : IntentService(TestService::class.simpleName) {
+class TestService : IntentService("TestService") {
 
     private val TAG = "TestService"
     val handler = Handler()
@@ -24,7 +24,6 @@ class TestService : IntentService(TestService::class.simpleName) {
 
 
     override fun onHandleIntent(intent: Intent?) {
-
         try {
             "FUCKING MADE IT".log()
             handler.post(runnableCode)
