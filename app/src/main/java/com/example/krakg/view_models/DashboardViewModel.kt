@@ -36,6 +36,18 @@ object DashboardViewModel : ViewModel() {
         return serverTime
     }
 
+    @SuppressLint("CheckResult")
+    fun getTicker(pair:String): MutableLiveData<Array<String>> {
+        lateinit var serverTime: MutableLiveData<Array<String>>
+        retrofitInterface.getTicker()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                { response -> serverTime.value = response },
+                { error -> Log.e("DashboardViewModel", "API request error", error) }
+            )
+        return serverTime
+    }
 
     fun getBotName(callBack: (String) -> Unit) {
         val randomUUI = java.util.UUID.randomUUID().toString()
@@ -43,9 +55,11 @@ object DashboardViewModel : ViewModel() {
             val response = retrofitInterface.getBotName("https://wunameaas.herokuapp.com/wuami/:$randomUUI").await()
             withContext(Dispatchers.Main) {
                 callBack(response)
-            }
+            };
         }
     }
+
+
 }
 
 

@@ -17,7 +17,7 @@ import com.example.krakg.view_models.ExpandedBotViewModel
 
 class BotExpandedFragment: Fragment() {
 
-    lateinit var myString:String
+    private lateinit var myString:String
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

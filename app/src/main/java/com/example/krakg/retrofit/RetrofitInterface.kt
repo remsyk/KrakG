@@ -19,4 +19,7 @@ interface RetrofitInterface {
     @GET
     fun getBotName(@Url url: String ): Deferred<String>
 
+
+    @GET("/0/public/Ticker")
+    fun getTicker():Observable<Array<String>>
 }

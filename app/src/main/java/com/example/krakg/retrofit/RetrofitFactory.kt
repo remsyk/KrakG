@@ -31,7 +31,6 @@ object RetrofitFactory {
     }
 
     private fun getOkHttpClient(): OkHttpClient {
-
         val httpLoggingInterceptor = HttpLoggingInterceptor().apply {
             this.level = HttpLoggingInterceptor.Level.BODY
         }
