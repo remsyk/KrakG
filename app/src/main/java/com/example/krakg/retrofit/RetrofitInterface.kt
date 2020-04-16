@@ -3,6 +3,7 @@ package com.example.krakg.retrofit
 import io.reactivex.Observable
 import kotlinx.coroutines.Deferred
 import retrofit2.Call
+import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Url
@@ -21,5 +22,5 @@ interface RetrofitInterface {
 
 
     @GET("/0/public/Ticker")
-    fun getTicker():Observable<Array<String>>
+    fun getTicker(@Body pair:List<String>):Observable<Array<String>>
 }

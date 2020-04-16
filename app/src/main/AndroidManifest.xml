@@ -15,7 +15,7 @@
         tools:ignore="GoogleAppIndexingWarning">
         <service
             android:enabled="true"
-            android:name=".services.TestService"
+            android:name=".services.UpdateService"
             android:exported="false"/>
 
         <activity

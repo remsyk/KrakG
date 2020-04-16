@@ -1,15 +1,12 @@
 package com.example.krakg.ui.activities
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -17,14 +14,11 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.krakg.R
-import com.example.krakg.log
 import com.example.krakg.models.BotModel
-import com.example.krakg.services.TestService
+import com.example.krakg.services.UpdateService
 import com.example.krakg.ui.fragments.dialogs.ProgressDialog
 import com.example.krakg.view_models.BotsViewModel
 import com.example.krakg.view_models.DashboardViewModel
-import kotlinx.android.synthetic.main.viewgroup_actionbar_bots.*
-import kotlinx.android.synthetic.main.viewgroup_actionbar_dashboard.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
-        startService(TestService.newIntent(this))
+        startService(UpdateService.newIntent(this))
 
 
         supportActionBar!!.setDisplayShowTitleEnabled(false)
@@ -84,7 +78,7 @@ class MainActivity : AppCompatActivity() {
         when(item.itemId){
             R.id.design_menu_item_add->{
                 val progressBar = ProgressDialog.show(supportFragmentManager)
-                DashboardViewModel.getBotName {
+                DashboardViewModel.getApiBotName {
                     Toast.makeText(this, "Bot Added", Toast.LENGTH_SHORT).show()
                     BotsViewModel.addBot(BotModel(it, 1.3, "BTC>LTC", "$51.54", "+1.3%", null))
                     progressBar.dismiss()
