@@ -9,10 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.krakg.R
 import com.example.krakg.adapters.DashboardCardAdapter
-import com.example.krakg.log
-import com.example.krakg.models.BotModel
-import com.example.krakg.models.GetTickerModel
-import com.example.krakg.view_models.BotsViewModel
 import com.example.krakg.view_models.DashboardViewModel
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.fragment_dashboard.*
@@ -45,8 +41,7 @@ class DashboardFragment : Fragment() {
         val adapter = DashboardCardAdapter(activity!!)
         recyclerView_dashboard.adapter = adapter
 
-        DashboardViewModel.getTicker().observe(activity!!, Observer<MutableList<GetTickerModel>> {
-            it.log()
+        DashboardViewModel.getTicker().observe(activity!!, Observer {
             adapter.updateData(it)
         })
 

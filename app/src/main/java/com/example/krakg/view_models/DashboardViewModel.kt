@@ -1,7 +1,6 @@
 package com.example.krakg.view_models
 
 import android.annotation.SuppressLint
-import android.text.GetChars
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,23 +9,18 @@ import com.example.krakg.models.GetTickerModel
 import com.example.krakg.retrofit.RetrofitFactory
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 object DashboardViewModel : ViewModel() {
 
-    private val pairTickerData: MutableLiveData<MutableList<GetTickerModel>> by lazy {
-        MutableLiveData<MutableList<GetTickerModel>>().also {
+    private val pairTickerData: MutableLiveData<MutableList<GetTickerModel.Result.Pair>> by lazy {
+        MutableLiveData<MutableList<GetTickerModel.Result.Pair>>().also {
             it.value = mutableListOf(
-                GetTickerModel(null,null,null,null,null,null,null,null,null),
-                GetTickerModel(null,null,null,null,null,null,null,null,null),
-                GetTickerModel(null,null,null,null,null,null,null,null,null)
+                GetTickerModel.Result.Pair(null, null, null, null, null, null, null, null, null),
+                GetTickerModel.Result.Pair(null, null, null, null, null, null, null, null, null),
+                GetTickerModel.Result.Pair(null, null, null, null, null, null, null, null, null)
             )
         }
     }
-
 
      val retrofitInterface by lazy {
         RetrofitFactory.create()
@@ -52,14 +46,17 @@ object DashboardViewModel : ViewModel() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
-                { response -> pairTickerData.value!![1] = response },
+                { response ->
+                    pairTickerData.value!![0]= response.result.BTCUSD
+                    pairTickerData.value!![1]= response.result.LTCUSD
+                    pairTickerData.value!![2]= response.result.LTCBTC
+                },
                 { error -> Log.e("DashboardViewModel", "API request error", error) }
             )
-
         pairTickerData.postValue (pairTickerData.value)
     }
 
-    fun getTicker():MutableLiveData<MutableList<GetTickerModel>> = pairTickerData
+    fun getTicker():MutableLiveData<MutableList<GetTickerModel.Result.Pair>> = pairTickerData
 
 
 }

@@ -16,8 +16,8 @@ class UpdateService : IntentService("TestService") {
     val handler = Handler()
     private val runnableCode = object : Runnable {
         override fun run() {
-            DashboardViewModel.getApiTicker("XXRPZUSD")
-            handler.postDelayed(this, 5000)
+            DashboardViewModel.getApiTicker("XXBTZUSD,XLTCZUSD,XLTCXXBT")
+            handler.postDelayed(this, 30000)
         }
     }
 

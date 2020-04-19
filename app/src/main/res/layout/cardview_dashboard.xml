@@ -30,34 +30,59 @@
                     android:layout_height="wrap_content" />
 
                 <include
-                    android:id="@+id/include_price"
+                    android:id="@+id/include_ask"
                     layout="@layout/viewgroup_api_dashboard_item"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
                 <include
-                    android:id="@+id/include_avg"
+                    android:id="@+id/include_bid"
                     layout="@layout/viewgroup_api_dashboard_item"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
                 <include
-                    android:id="@+id/include_log"
+                    android:id="@+id/include_last"
                     layout="@layout/viewgroup_api_dashboard_item"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
                 <include
-                    android:id="@+id/include_weekly"
+                    android:id="@+id/include_high"
                     layout="@layout/viewgroup_api_dashboard_item"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
                 <include
-                    android:id="@+id/include_monthly"
+                    android:id="@+id/include_low"
                     layout="@layout/viewgroup_api_dashboard_item"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
+
+                <include
+                    android:id="@+id/include_open"
+                    layout="@layout/viewgroup_api_dashboard_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    android:id="@+id/include_volumeWeighted"
+                    layout="@layout/viewgroup_api_dashboard_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    android:id="@+id/include_numTrades"
+                    layout="@layout/viewgroup_api_dashboard_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <include
+                    android:id="@+id/include_volume"
+                    layout="@layout/viewgroup_api_dashboard_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
             </LinearLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>
