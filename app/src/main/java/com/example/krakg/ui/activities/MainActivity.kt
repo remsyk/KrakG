@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
         when(item.itemId){
             R.id.design_menu_item_add->{
                 val progressBar = ProgressDialog.show(supportFragmentManager)
-                DashboardViewModel.getApiBotName {
+                BotsViewModel.getApiBotName {
                     Toast.makeText(this, "Bot Added", Toast.LENGTH_SHORT).show()
                     BotsViewModel.addBot(BotModel(it, 1.3, "BTC>LTC", "$51.54", "+1.3%", null))
                     progressBar.dismiss()

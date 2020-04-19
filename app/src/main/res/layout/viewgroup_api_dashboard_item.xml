@@ -27,5 +27,5 @@
         android:paddingEnd="20dp"
         android:textSize="@dimen/title_medium"
         android:gravity="end"
-        android:text="$9251.02" />
+        android:text="loading..." />
 </LinearLayout>

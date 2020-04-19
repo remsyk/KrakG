@@ -1,6 +1,7 @@
 package com.example.krakg.adapters
 
 import android.content.Context
+import android.text.GetChars
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,13 +10,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.krakg.R
+import com.example.krakg.models.GetTickerModel
 import com.google.android.material.textview.MaterialTextView
 import kotlinx.android.synthetic.main.cardview_dashboard.view.*
 import kotlinx.android.synthetic.main.viewgroup_api_dashboard_item.view.*
 import kotlinx.android.synthetic.main.viewgroup_api_dashboard_item_title.view.*
 
-class DashboardCardAdapter(private val data: List<String>, private val context: Context): RecyclerView.Adapter<DashboardCardAdapter.ViewHolder>() {
+class DashboardCardAdapter( private val context: Context): RecyclerView.Adapter<DashboardCardAdapter.ViewHolder>() {
 
+    lateinit var data: MutableList<GetTickerModel>
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(context).inflate(
@@ -36,7 +39,7 @@ class DashboardCardAdapter(private val data: List<String>, private val context: 
             coinItem.text = "BTC"
 
             priceTitle.text =  "Price"
-            priceItem.text = "$3000"
+            priceItem.text = "$9000"
 
             avgTitle.text = "Average"
             avgItem.text = "200"
@@ -50,6 +53,10 @@ class DashboardCardAdapter(private val data: List<String>, private val context: 
         }
     }
 
+    fun updateData(_data: MutableList<GetTickerModel>) {
+            data = _data
+            notifyDataSetChanged()
+    }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         //val fab: FloatingActionButton = view.fab_dashboard
@@ -57,7 +64,6 @@ class DashboardCardAdapter(private val data: List<String>, private val context: 
 
         val coinTitle: MaterialTextView = view.include_coin.textview_title
         val coinItem: MaterialTextView = view.include_coin.textView_item
-
 
         val priceTitle: MaterialTextView = view.include_price.textview_title
         val priceItem: MaterialTextView = view.include_price.textView_item

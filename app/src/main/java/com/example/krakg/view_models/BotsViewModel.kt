@@ -3,6 +3,10 @@ package com.example.krakg.view_models
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.krakg.models.BotModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 object BotsViewModel : ViewModel() {
 
@@ -18,18 +22,26 @@ object BotsViewModel : ViewModel() {
 
     fun addBot (botModel: BotModel){
         botList.value!!.add(botModel)
-        botList.postValue(
-            botList.value)
+        botList.postValue(botList.value)
     }
 
     fun removeBot(position:Int){
         botList.value!!.removeAt(position)
-        botList.postValue(
-            botList.value)
+        botList.postValue(botList.value)
     }
 
 
-    fun getBots(): MutableLiveData<MutableList<BotModel>> =
-        botList
+    fun getBots(): MutableLiveData<MutableList<BotModel>> = botList
 
+
+
+    fun getApiBotName(callBack: (String) -> Unit) {
+        val randomUUI = java.util.UUID.randomUUID().toString()
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = DashboardViewModel.retrofitInterface.getBotName("https://wunameaas.herokuapp.com/wuami/:$randomUUI").await()
+            withContext(Dispatchers.Main) {
+                callBack(response)
+            };
+        }
+    }
 }

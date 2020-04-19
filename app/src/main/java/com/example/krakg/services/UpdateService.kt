@@ -4,8 +4,6 @@ import android.app.IntentService
 import android.content.Context
 import android.content.Intent
 import android.os.Handler
-import com.example.krakg.log
-import com.example.krakg.view_models.BotsViewModel
 import com.example.krakg.view_models.DashboardViewModel
 
 /**
@@ -18,8 +16,7 @@ class UpdateService : IntentService("TestService") {
     val handler = Handler()
     private val runnableCode = object : Runnable {
         override fun run() {
-            "HERE WE GO".log()
-            DashboardViewModel.getApiTicker2("qqwee")
+            DashboardViewModel.getApiTicker("XXRPZUSD")
             handler.postDelayed(this, 5000)
         }
     }

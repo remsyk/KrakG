@@ -1,10 +1,12 @@
 package com.example.krakg.view_models
 
 import android.annotation.SuppressLint
+import android.text.GetChars
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.krakg.log
+import com.example.krakg.models.GetTickerModel
 import com.example.krakg.retrofit.RetrofitFactory
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -15,16 +17,20 @@ import kotlinx.coroutines.withContext
 
 object DashboardViewModel : ViewModel() {
 
-    private val pairTickerData: MutableLiveData<Array<String>> by lazy {
-        MutableLiveData<Array<String>>().also {
-            it.value = arrayOf("werw","werwe")
+    private val pairTickerData: MutableLiveData<MutableList<GetTickerModel>> by lazy {
+        MutableLiveData<MutableList<GetTickerModel>>().also {
+            it.value = mutableListOf(
+                GetTickerModel(null,null,null,null,null,null,null,null,null),
+                GetTickerModel(null,null,null,null,null,null,null,null,null),
+                GetTickerModel(null,null,null,null,null,null,null,null,null)
+            )
         }
     }
 
-    val retrofitInterface by lazy {
+
+     val retrofitInterface by lazy {
         RetrofitFactory.create()
     }
-
 
     @SuppressLint("CheckResult")
     fun getApiServerTime(): MutableLiveData<String> {
@@ -39,44 +45,21 @@ object DashboardViewModel : ViewModel() {
         return serverTime
     }
 
+
     @SuppressLint("CheckResult")
-    fun getApiTicker(pair:String): MutableLiveData<Array<String>> {
-        lateinit var ticker: MutableLiveData<Array<String>>
-        retrofitInterface.getTicker(listOf("BTC","USD"))
+    fun getApiTicker(pair:String) {
+        retrofitInterface.getTicker(pair)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
-                { response -> ticker.value = response },
+                { response -> pairTickerData.value!![1] = response },
                 { error -> Log.e("DashboardViewModel", "API request error", error) }
             )
-        return ticker
+
+        pairTickerData.postValue (pairTickerData.value)
     }
 
-    @SuppressLint("CheckResult")
-    fun getApiTicker2(pair:String) {
-        retrofitInterface.getTicker(listOf("BTC","USD"))
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(
-                { response ->  response.log() },
-                { error -> Log.e("DashboardViewModel", "API request error", error) }
-            )
-    }
-
-    fun getTicker():MutableLiveData<Array<String>>{
-        return pairTickerData
-    }
-
-
-    fun getApiBotName(callBack: (String) -> Unit) {
-        val randomUUI = java.util.UUID.randomUUID().toString()
-        CoroutineScope(Dispatchers.IO).launch {
-            val response = retrofitInterface.getBotName("https://wunameaas.herokuapp.com/wuami/:$randomUUI").await()
-            withContext(Dispatchers.Main) {
-                callBack(response)
-            };
-        }
-    }
+    fun getTicker():MutableLiveData<MutableList<GetTickerModel>> = pairTickerData
 
 
 }
