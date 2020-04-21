@@ -58,7 +58,6 @@ object DashboardViewModel : ViewModel() {
 
     fun getTicker():MutableLiveData<MutableList<GetTickerModel.Result.Pair>> = pairTickerData
 
-
 }
 
 

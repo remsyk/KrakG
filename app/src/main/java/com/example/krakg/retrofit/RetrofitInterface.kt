@@ -20,4 +20,13 @@ interface RetrofitInterface {
 
     @GET("/0/public/Ticker")
     fun getTicker(@Query("pair") pair:String):Observable<GetTickerModel>
+
+    @GET("/0/public/Spread")
+    fun getSpread(@Query("pair") pair:String,@Query("spread") spread:String ):Observable<GetTickerModel>
+
+
+    @GET("/0/public/Depth")
+    fun getOrderBook(@Query("pair") pair:String ):Observable<GetTickerModel>
+
+
 }
