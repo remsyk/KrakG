@@ -11,6 +11,7 @@ import com.example.krakg.models.ConditionModel
 import com.example.krakg.view_models.ConditionMakerViewModel
 import com.example.krakg.ui.fragments.dialogs.*
 import kotlinx.android.synthetic.main.cardview_condition_viewer.view.*
+import kotlinx.android.synthetic.main.viewgroup_conditionmaker_divider.view.*
 
 class ConditionAdapter( private val context: FragmentActivity): RecyclerView.Adapter<ConditionAdapter.ViewHolder>() {
 
@@ -31,6 +32,7 @@ class ConditionAdapter( private val context: FragmentActivity): RecyclerView.Ada
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         with(viewHolder) {
 
+            //TODO change the color of the divider chip
             buySell.text = conditionsList[position].buySell
             interval1.text = conditionsList[position].interval1
             indicator1.text = conditionsList[position].indicator1
@@ -101,8 +103,14 @@ class ConditionAdapter( private val context: FragmentActivity): RecyclerView.Ada
                        value.log()
                    }
             }
+
+            divider.setOnClickListener {
+               ConditionMakerViewModel.swap(position)
+            }
         }
     }
+
+
 
     fun updateData(data: MutableList<ConditionModel>){
         conditionsList = data
@@ -122,6 +130,7 @@ class ConditionAdapter( private val context: FragmentActivity): RecyclerView.Ada
             val indicator2 = view.chip_indicator2
             val _for = view.chip_for
             val amount = view.chip_amount
+            val divider= view.include_condition_divider.chip_divider
     }
 }
 

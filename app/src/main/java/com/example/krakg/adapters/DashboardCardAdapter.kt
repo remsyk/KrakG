@@ -1,6 +1,7 @@
 package com.example.krakg.adapters
 
 import android.content.Context
+import android.graphics.Typeface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,6 +32,7 @@ class DashboardCardAdapter( private val context: Context): RecyclerView.Adapter<
         with(viewHolder) {
 
             coinTitle.text = "Coin"
+            coinItem.setTypeface(null, Typeface.BOLD)
             when(position){
                 0-> coinItem.text = "BTC/USD"
                 1-> coinItem.text = "LTC/USD"

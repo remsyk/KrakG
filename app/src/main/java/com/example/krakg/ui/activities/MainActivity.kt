@@ -76,6 +76,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
+            //TODO when you switch fragments this button becomes disabled
             R.id.design_menu_item_add->{
                 val progressBar = ProgressDialog.show(supportFragmentManager)
                 BotsViewModel.getApiBotName {
