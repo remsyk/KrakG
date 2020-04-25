@@ -19,6 +19,10 @@ import com.example.krakg.services.UpdateService
 import com.example.krakg.ui.fragments.dialogs.ProgressDialog
 import com.example.krakg.view_models.BotsViewModel
 import com.example.krakg.view_models.DashboardViewModel
+import kotlinx.android.synthetic.main.viewgroup_actionbar_bots.*
+
+
+//TODO figure out how to send out updates for apps not in app store
 
 class MainActivity : AppCompatActivity() {
 
@@ -62,14 +66,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        /*design_menu_item_add.setOnClickListener {
+        design_menu_item_add.setOnClickListener {
             val progressBar = ProgressDialog.show(supportFragmentManager)
-            DashboardViewModel.getBotName {
+            BotsViewModel.getApiBotName {
                 Toast.makeText(this, "Bot Added", Toast.LENGTH_SHORT).show()
                 BotsViewModel.addBot(BotModel(it, 1.3, "BTC>LTC", "$51.54", "+1.3%", null))
                 progressBar.dismiss()
             }
-        }*/
+        }
 
         return super.onCreateOptionsMenu(menu)
     }

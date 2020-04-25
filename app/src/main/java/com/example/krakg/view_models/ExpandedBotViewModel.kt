@@ -17,7 +17,8 @@ object ExpandedBotViewModel : ViewModel() {
                 ExpandedBotCardModel("Total Trades", 10.9, null, null, false, null),
                 ExpandedBotCardModel("Time Up", 100.23, null, "sec", false, null),
                 ExpandedBotCardModel("Paper Trading", "true", null, null, false, null),
-                ExpandedBotCardModel("Conditions List", 5, null, null, false, null)
+                ExpandedBotCardModel("Conditions List", 5, null, null, false, null),
+                ExpandedBotCardModel("Exchange", "BTC/USD", null, null, false, null)
             )
         }
     }

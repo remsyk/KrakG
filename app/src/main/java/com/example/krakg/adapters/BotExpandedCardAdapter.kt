@@ -57,6 +57,8 @@ class BotExpandedCardAdapter( private val context: Context): RecyclerView.Adapte
                 asset.setImageDrawable( (context as AppCompatActivity).resources.getDrawable(R.drawable.ic_android_black_24dp, context.getTheme()))
             }
 
+            //TODO diaable paper trading listener
+
             card.setOnClickListener {
                 when(position){
 

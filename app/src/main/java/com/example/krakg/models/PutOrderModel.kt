@@ -10,7 +10,7 @@ data class PutOrderModel (
     @SerializedName("orderType")
     var orderType: String,
     @SerializedName("price")
-    var price: String,
+    var price: String?,
     @SerializedName("price2")
     var price2: String?,
     @SerializedName("volume")

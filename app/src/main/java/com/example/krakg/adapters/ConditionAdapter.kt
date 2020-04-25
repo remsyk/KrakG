@@ -33,6 +33,7 @@ class ConditionAdapter( private val context: FragmentActivity): RecyclerView.Ada
         with(viewHolder) {
 
             //TODO change the color of the divider chip
+            //TODO disable options for different intervals and different order types and indicators
             buySell.text = conditionsList[position].buySell
             interval1.text = conditionsList[position].interval1
             indicator1.text = conditionsList[position].indicator1
@@ -104,8 +105,17 @@ class ConditionAdapter( private val context: FragmentActivity): RecyclerView.Ada
                    }
             }
 
-            divider.setOnClickListener {
-               ConditionMakerViewModel.swap(position)
+            if(position!= conditionsList.size-1) {
+                dividerLine1.visibility = View.VISIBLE
+                dividerLine2.visibility = View.VISIBLE
+                divider.visibility = View.VISIBLE
+                divider.setOnClickListener {
+                    ConditionMakerViewModel.swap(position)
+                }
+            }else{
+                dividerLine1.visibility = View.GONE
+                dividerLine2.visibility = View.GONE
+                divider.visibility = View.GONE
             }
         }
     }
@@ -131,6 +141,9 @@ class ConditionAdapter( private val context: FragmentActivity): RecyclerView.Ada
             val _for = view.chip_for
             val amount = view.chip_amount
             val divider= view.include_condition_divider.chip_divider
+            val dividerLine1 = view.include_condition_divider.divider_line_1
+            val dividerLine2 = view.include_condition_divider.divider_line_2
+
     }
 }
 
