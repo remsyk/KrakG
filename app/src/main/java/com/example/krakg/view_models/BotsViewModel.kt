@@ -16,11 +16,7 @@ object BotsViewModel : ViewModel() {
 
     private val botList: MutableLiveData<MutableList<BotModel>> by lazy {
         MutableLiveData<MutableList<BotModel>>().also {
-            it.value = mutableListOf<BotModel>(
-
-                BotModel("Intellectual Dominator",1.3,"BTC/LTC","$370.90","+4.3%",null),
-                BotModel("B Money",1.3,"BTC/LTC","$428.60","-8.3%",null),
-                BotModel("Respected Knight",1.3,"BTC/LTC","$51.54","+1.3%",null))
+            it.value =  dbManager.getBots()
         }
     }
 
@@ -28,8 +24,6 @@ object BotsViewModel : ViewModel() {
         botList.value!!.add(botModel)
         botList.postValue(botList.value)
         dbManager.addBot(botModel, botList.value!!.size+1)
-        dbManager.getBots().log()
-
     }
 
     fun removeBot(position:Int){

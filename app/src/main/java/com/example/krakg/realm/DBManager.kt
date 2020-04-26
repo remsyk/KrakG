@@ -33,17 +33,23 @@ class DBManager  {
         }
     }
 
-     fun delBot( bot:BotRealmModel?) :RealmResults<BotRealmModel> {
+     fun delBot( bot:BotRealmModel?)  {
          Realm.getDefaultInstance().use() { r ->
             r.executeTransaction(Realm.Transaction { realm ->
                 realm.where(BotRealmModel::class.java).equalTo("seed", bot!!.botId).findAll()?.deleteAllFromRealm()
             })
         }
-        return getBots()
     }
 
-    fun getBots(): RealmResults<BotRealmModel> {
-        return  Realm.getDefaultInstance().where(BotRealmModel::class.java).findAll()
+    fun getBots(): MutableList<BotModel> {
+        val botList = mutableListOf<BotModel>()
+
+        Realm.getDefaultInstance().where(BotRealmModel::class.java).findAll().let {realmObject->
+            realmObject.forEach {
+                botList += BotModel(it.title!!,it.graph!!,it.exchange,it.value,it.gross!!,null)
+            }
+        }
+        return botList
     }
 
 
