@@ -35,10 +35,10 @@ class MainActivity : AppCompatActivity() {
 
         startService(UpdateService.newIntent(this))
 
-
         supportActionBar!!.setDisplayShowTitleEnabled(false)
         supportActionBar!!.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
         supportActionBar!!.setCustomView(R.layout.viewgroup_actionbar_bots_2)
+
 
         navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
@@ -60,37 +60,29 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+            resetAddBotOnClick()
+
+        return super.onCreateOptionsMenu(menu)
+    }
+
+
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putInt("currentFragment", navController.currentDestination!!.id)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
+
+    fun resetAddBotOnClick(){
         design_menu_item_add.setOnClickListener {
             val progressBar = ProgressDialog.show(supportFragmentManager)
             BotsViewModel.getApiBotName {
                 Toast.makeText(this, "Bot Added", Toast.LENGTH_SHORT).show()
-                BotsViewModel.addBot(BotModel(it, 1.3, "BTC>LTC", "$51.54", "+1.3%", null))
+                BotsViewModel.addBot(BotModel(it, 1.3, "BTC>USD", "$51.54", "+1.3%", null))
                 progressBar.dismiss()
             }
         }
-
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            //TODO when you switch fragments this button becomes disabled
-            R.id.design_menu_item_add->{
-                val progressBar = ProgressDialog.show(supportFragmentManager)
-                BotsViewModel.getApiBotName {
-                    Toast.makeText(this, "Bot Added", Toast.LENGTH_SHORT).show()
-                    BotsViewModel.addBot(BotModel(it, 1.3, "BTC>LTC", "$51.54", "+1.3%", null))
-                    progressBar.dismiss()
-                }
-            }
-        }
-        return true
     }
 
 

@@ -1,4 +1,4 @@
-package com.example.krakg.realm
+package com.example.krakg.models
 
 import com.example.krakg.models.BotModel
 import io.realm.RealmObject
