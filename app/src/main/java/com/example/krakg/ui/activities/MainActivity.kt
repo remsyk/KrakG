@@ -1,8 +1,8 @@
 package com.example.krakg.ui.activities
 
+import android.opengl.Visibility
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
+import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -14,12 +14,14 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.krakg.R
+import com.example.krakg.log
 import com.example.krakg.models.BotModel
 import com.example.krakg.services.UpdateService
 import com.example.krakg.ui.fragments.dialogs.ProgressDialog
 import com.example.krakg.view_models.BotsViewModel
 import com.example.krakg.view_models.DashboardViewModel
 import kotlinx.android.synthetic.main.viewgroup_actionbar_bots.*
+import kotlinx.android.synthetic.main.viewgroup_actionbar_bots.view.*
 
 
 //TODO figure out how to send out updates for apps not in app store
@@ -37,8 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar!!.setDisplayShowTitleEnabled(false)
         supportActionBar!!.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
-        supportActionBar!!.setCustomView(R.layout.viewgroup_actionbar_bots_2)
-
+        supportActionBar!!.setCustomView(R.layout.viewgroup_actionbar_bots)
 
         navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
@@ -57,33 +58,48 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState != null) {
             navController.navigate(savedInstanceState.getInt("currentFragment"))
         }
-    }
 
+    }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-            resetAddBotOnClick()
-
-        return super.onCreateOptionsMenu(menu)
+        val inflater: MenuInflater  = menuInflater
+        inflater.inflate(R.menu.actionbar_menu_add_bot,menu)
+        mainMenu = menu!!
+        return true
     }
 
+
+
+    override fun onOptionsItemSelected(item:MenuItem): Boolean {
+        when(item.itemId){
+            R.id.add_condition->{
+                val progressBar = ProgressDialog.show(supportFragmentManager)
+                BotsViewModel.getApiBotName {
+                    Toast.makeText(this, "Bot Added", Toast.LENGTH_SHORT).show()
+                    BotsViewModel.addBot(BotModel(it, 1.3, "BTC>USD", "$51.54", "+1.3%", null))
+                    progressBar.dismiss()
+                }
+            }
+        }
+        return true
+    }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putInt("currentFragment", navController.currentDestination!!.id)
     }
 
+companion object{
+    lateinit var mainMenu:Menu
 
-
-    fun resetAddBotOnClick(){
-        design_menu_item_add.setOnClickListener {
-            val progressBar = ProgressDialog.show(supportFragmentManager)
-            BotsViewModel.getApiBotName {
-                Toast.makeText(this, "Bot Added", Toast.LENGTH_SHORT).show()
-                BotsViewModel.addBot(BotModel(it, 1.3, "BTC>USD", "$51.54", "+1.3%", null))
-                progressBar.dismiss()
-            }
+    fun setMainMenuVisibility(visibility: Boolean){
+        if(::mainMenu.isInitialized) {
+            mainMenu.findItem(R.id.add_condition).isVisible = visibility
         }
     }
+
+
+}
 
 
 }

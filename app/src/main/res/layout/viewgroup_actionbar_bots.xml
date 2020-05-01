@@ -17,21 +17,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/design_menu_item_add"
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_gravity="end"
-        app:iconSize="25dp"
-        android:background="@color/transparent"
-        style="?android:attr/borderlessButtonStyle"
-        android:height="0dp"
-        app:icon="@drawable/ic_add_24px"
-        app:iconGravity="textEnd"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,6 +16,7 @@ class BotExpandedActivity: AppCompatActivity() {
 
     private var loadFragment = "botName"
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.framelayout_generic)
