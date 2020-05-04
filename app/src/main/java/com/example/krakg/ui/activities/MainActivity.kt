@@ -21,6 +21,7 @@ import com.example.krakg.view_models.BotsViewModel
 
 
 //TODO figure out how to send out updates for apps not in app store
+//TODO set up error handling
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,8 +31,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
-
-        IndicatorGuideDialog.show(supportFragmentManager)
 
         startService(UpdateService.newIntent(this))
 
@@ -74,7 +73,7 @@ class MainActivity : AppCompatActivity() {
                 val progressBar = ProgressDialog.show(supportFragmentManager)
                 BotsViewModel.getApiBotName {
                     Toast.makeText(this, "Bot Added", Toast.LENGTH_SHORT).show()
-                    BotsViewModel.addBot(BotModel(it, 1.3, "BTC>USD", "$51.54", "+1.3%", null))
+                    BotsViewModel.addBot(BotModel(it, 1.3, "BTC>USD", "51.54", "1.3","111","222","333","444",true,"666","777"))
                     progressBar.dismiss()
                 }
             }

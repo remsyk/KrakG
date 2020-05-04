@@ -9,22 +9,24 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.krakg.R
 import com.example.krakg.adapters.BotExpandedCardAdapter
-import com.example.krakg.models.ExpandedBotCardModel
 import kotlinx.android.synthetic.main.fragment_bot_expanded.*
 import androidx.lifecycle.Observer
-import com.example.krakg.view_models.ExpandedBotViewModel
+import com.example.krakg.view_models.BotsViewModel
+import kotlin.properties.Delegates
 
 
 class BotExpandedFragment: Fragment() {
 
-    private lateinit var myString:String
+    private var botPosition by Delegates.notNull<Int>()
+
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        arguments?.getString("theString")?.let {
-            myString = it
+        arguments?.getInt("botPosition")?.let {
+            botPosition = it
         }
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,11 +42,11 @@ class BotExpandedFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         recyclerView_bots_expanded.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-        val adapter = BotExpandedCardAdapter( activity!!)
+        val adapter = BotExpandedCardAdapter( requireActivity())
         recyclerView_bots_expanded.adapter = adapter
 
-        ExpandedBotViewModel.getInidcators().observe(activity!!, Observer <MutableList<ExpandedBotCardModel>> {
-            adapter.updateData(it)
+        BotsViewModel.getBots().observe(requireActivity(), Observer {
+            adapter.updateData(it[botPosition])
         })
 
 

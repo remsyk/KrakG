@@ -40,15 +40,15 @@ class BotCardAdapter(
 
         with(viewHolder) {
             title.text = botsList[position].title
-            value.text = botsList[position].value
-            gross.text = botsList[position].gross
+            value.text = "$" + botsList[position].value
+            gross.text = "+" + botsList[position].gross + "%"
             exchange.text = botsList[position].exchange
 
             val chartModel = LineChartActivity(chart)
             chartModel.onCreate()
 
             botCard.setOnClickListener {
-                context.startActivity(Intent(context, BotExpandedActivity::class.java).putExtra("botName",botsList[position].title))
+                context.startActivity(Intent(context, BotExpandedActivity::class.java).putExtra("botName",botsList[position].title).putExtra("position",position))
             }
             botCard.setOnLongClickListener {
                 BotRemoveDialog.show(context.supportFragmentManager).getValue={

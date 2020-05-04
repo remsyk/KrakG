@@ -11,17 +11,20 @@ import com.example.krakg.models.ConditionModel
 import com.example.krakg.ui.fragments.BotExpandedFragment
 import com.example.krakg.ui.fragments.dialogs.IndicatorGuideDialog
 import com.example.krakg.view_models.ConditionMakerViewModel
+import kotlin.properties.Delegates
 
 
 class BotExpandedActivity: AppCompatActivity() {
 
     private var loadFragment = "botName"
+    var botPosition by Delegates.notNull<Int>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.framelayout_generic)
         loadFragment = intent.getStringExtra("botName")!!
+        botPosition = intent.getIntExtra("botPosition",0)
 
         supportActionBar!!.title = loadFragment
         supportActionBar!!.setDisplayShowTitleEnabled(true)
@@ -29,7 +32,7 @@ class BotExpandedActivity: AppCompatActivity() {
         supportFragmentManager.beginTransaction().replace(R.id.framelayout_generic_layout,
             BotExpandedFragment().apply {
                 arguments = Bundle().apply {
-                    putString("theString", "weeee")
+                    putInt("botPosition", botPosition)
                 }
             }
         ).addToBackStack("BotExpandedFragment").commit()

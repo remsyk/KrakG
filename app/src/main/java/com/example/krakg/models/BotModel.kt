@@ -13,6 +13,18 @@ data class  BotModel(
     var value: String?,
     @SerializedName("gross")
     var gross: String,
-    @SerializedName("expandedBot")
-    var expandedBot: ExpandedBotCardModel? //TODO set to null for lack of local database
+    @SerializedName("net_change")
+    var netChange: String,
+    @SerializedName("trades_hr")
+    var tradesHr: String,
+    @SerializedName("avg")
+    var avg: String,
+    @SerializedName("total_trades")
+    var totalTrades: String,
+    @SerializedName("paper_trading")
+    var paperTrading: Boolean,
+    @SerializedName("time_up")
+    var timeUp: String,
+    @SerializedName("condition_list")
+    var conditionList: String
 )

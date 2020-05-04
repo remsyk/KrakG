@@ -41,5 +41,12 @@
            layout="@layout/viewgroup_settings_item"
            />
 
+       <include
+           android:id="@+id/include_api_item"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           layout="@layout/viewgroup_settings_item"
+           />
+
    </LinearLayout>
 </ScrollView>

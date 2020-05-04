@@ -12,13 +12,15 @@ open class BotRealmModel : RealmObject() {
     var title: String? = null
     var graph: Double? = null
     var exchange: String? = null
-    var gross: String? = null
     var value: String? = null
-    var prefix: String? = null
-    var suffix: String? = null
-    var hasasset: Boolean? = null
-    var asset: String? = null
-
+    var gross: String? = null
+    var netChange: String? = null
+    var tradesHr: String? = null
+    var avg: String? = null
+    var totalTrades: String? = null
+    var paperTrading: String? = null
+    var timeUp: String? = null
+    var conditionList: String? = null
 }
 
 

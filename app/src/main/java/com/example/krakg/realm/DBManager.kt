@@ -12,8 +12,10 @@ class DBManager  {
 
     val realmBotConfig = RealmConfiguration.Builder().name("botDb.realm")
         .schemaVersion(1)
+        .deleteRealmIfMigrationNeeded() //TODO comment this out on release
         .modules(BotSchema())
         .build()
+
     val realmSpeadConfig = RealmConfiguration.Builder().name("spreadDb.realm")
         .schemaVersion(2)
         .modules(SpreadSchema())
@@ -27,38 +29,34 @@ class DBManager  {
                     title = bot_.title
                     graph =bot_.graph
                     exchange = bot_.exchange
+                    value = "123"
                     gross = bot_.gross
+                    netChange = "111"
+                    tradesHr = "222"
+                    avg = "333"
+                    totalTrades = "444"
+                    paperTrading= true.toString()
+                    timeUp = "666"
+                    conditionList ="777"
 
-                     value = "$123"
-                    prefix = "werwer"
-                    suffix = "werwer"
-                    hasasset = true
-                    asset = "werwer"
-
-                   /* value = bot_.value.toString()
-                    prefix = bot_.expandedBot!!.prefix
-                    suffix = bot_.expandedBot!!.suffix
-                    hasasset = bot_.expandedBot!!.hasasset
-                    asset = bot_.expandedBot!!.asset.toString()*/
                 })
             }
         }
     }
 
-     fun delBot( bot: BotRealmModel?)  {
+     fun delBot( botId: String?)  {
          Realm.getInstance(realmBotConfig).use() { r ->
             r.executeTransaction(Realm.Transaction { realm ->
-                realm.where(BotRealmModel::class.java).equalTo("seed", bot!!.botId).findAll()?.deleteAllFromRealm()
+                realm.where(BotRealmModel::class.java).equalTo("botId", botId).findAll()?.deleteAllFromRealm()
             })
         }
     }
 
     fun getBots(): MutableList<BotModel> {
         val botList = mutableListOf<BotModel>()
-
         Realm.getInstance(realmBotConfig).where(BotRealmModel::class.java).findAll().let { realmObject->
             realmObject.forEach {
-                botList += BotModel(it.title!!,it.graph!!,it.exchange,it.value,it.gross!!,null)
+                botList += BotModel(it.title!!,it.graph!!,it.exchange,it.value,it.gross!!,"111","222","333","444",true,"666","777")
             }
         }
         return botList

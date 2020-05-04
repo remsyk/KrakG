@@ -2,7 +2,6 @@ package com.example.krakg.view_models
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.krakg.log
 import com.example.krakg.models.BotModel
 import com.example.krakg.realm.DBManager
 import kotlinx.coroutines.CoroutineScope
@@ -27,7 +26,13 @@ object BotsViewModel : ViewModel() {
     }
 
     fun removeBot(position:Int){
+        dbManager.delBot(botList.value!![position].title.substring(0,4))
         botList.value!!.removeAt(position)
+        botList.postValue(botList.value)
+    }
+
+    fun updatePaperTrading(position: Int,bool: Boolean){
+        botList.value!![position].paperTrading = bool
         botList.postValue(botList.value)
     }
 
