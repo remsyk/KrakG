@@ -7,6 +7,7 @@ import com.example.krakg.models.IndicatorGuideModel
 
 object IndicatorGuideViewModel : ViewModel() {
 
+    //TODO remove this live data list, it really is not needed for this
     private val indicatorList: MutableLiveData<MutableList<IndicatorGuideModel>> by lazy {
         MutableLiveData<MutableList<IndicatorGuideModel>>().also {
             it.value = mutableListOf<IndicatorGuideModel>(
