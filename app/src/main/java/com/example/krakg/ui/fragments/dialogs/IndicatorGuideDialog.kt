@@ -2,13 +2,11 @@ package com.example.krakg.ui.fragments.dialogs
 
 import android.app.AlertDialog
 import android.app.Dialog
-import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.doAfterTextChanged
-import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
@@ -19,7 +17,6 @@ import com.example.krakg.adapters.InidcatorGuideListAdapter
 import com.example.krakg.log
 import com.example.krakg.models.IndicatorGuideModel
 import com.example.krakg.view_models.IndicatorGuideViewModel
-import kotlinx.android.synthetic.main.fragment_inidactor_list.*
 import kotlinx.android.synthetic.main.fragment_inidactor_list.view.*
 
 
@@ -45,11 +42,16 @@ class IndicatorGuideDialog : DialogFragment() {
             .create()
     }
 
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val adapter = InidcatorGuideListAdapter(requireActivity())
         recyclerViewHolder.adapter = adapter
 
-        IndicatorGuideViewModel.getTrades().observe(requireActivity(), Observer<MutableList<IndicatorGuideModel>> {
+        IndicatorGuideViewModel.getFiltered().observe(requireActivity(), Observer<MutableList<IndicatorGuideModel>> {
+            adapter.updateData(it)
+        })
+
+        IndicatorGuideViewModel.getIndicators().observe(requireActivity(), Observer<MutableList<IndicatorGuideModel>> {
             adapter.updateData(it)
         })
 

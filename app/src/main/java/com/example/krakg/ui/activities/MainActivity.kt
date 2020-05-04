@@ -31,8 +31,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
-        IndicatorGuideDialog.show(supportFragmentManager)
-
         startService(UpdateService.newIntent(this))
 
         supportActionBar!!.setDisplayShowTitleEnabled(false)
