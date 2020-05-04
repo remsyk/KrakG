@@ -22,21 +22,25 @@ object IndicatorGuideViewModel : ViewModel() {
         }
     }
 
-    private val tempList:MutableLiveData<MutableList<IndicatorGuideModel>> by lazy {
+    /*private val tempList:MutableLiveData<MutableList<IndicatorGuideModel>> by lazy {
         MutableLiveData<MutableList<IndicatorGuideModel>>().also {
             it.value = getIndicators().value
         }
-    }
+    }*/
 
 
-    fun filter(userInput: String) {
+    /*fun filter(query: String) {
         tempList.postValue((indicatorList.value!!.filter {
-            it.title.startsWith(userInput, true)
+            it.title.startsWith(query, true)
         } as MutableList<IndicatorGuideModel>))
-    }
+    }*/
+
+    fun filter(query: String):MutableList<IndicatorGuideModel> = indicatorList.value!!.filter {
+        it.title.startsWith(query, true)
+    } as MutableList<IndicatorGuideModel>
 
 
-    fun getFiltered(): MutableLiveData<MutableList<IndicatorGuideModel>> = tempList
+
 
     fun getIndicators(): MutableLiveData<MutableList<IndicatorGuideModel>> = indicatorList
 

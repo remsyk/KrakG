@@ -28,13 +28,22 @@ class IndicatorGuideDialog : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
         val rootView = LayoutInflater.from(context).inflate(R.layout.fragment_inidactor_list, null, false)
-        rootView.cardview_inidicator_text.edit_text_search_indicators.doAfterTextChanged {
-            IndicatorGuideViewModel.filter(it!!.toString())
-        }
 
         recyclerViewHolder = rootView.recyclerView_indicators
-
         recyclerViewHolder.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
+        val adapter = InidcatorGuideListAdapter(requireActivity())
+        recyclerViewHolder.adapter = adapter
+
+        rootView.cardview_inidicator_text.edit_text_search_indicators.doAfterTextChanged {
+            IndicatorGuideViewModel.filter(it!!.toString())
+           adapter.updateData( IndicatorGuideViewModel.filter(it.toString()))
+        }
+
+
+        IndicatorGuideViewModel.getIndicators().observe(requireActivity(), Observer<MutableList<IndicatorGuideModel>> {
+            adapter.updateData(it)
+        })
+
 
         return AlertDialog.Builder(requireContext())
             .setTitle("Indicator Guide")
@@ -43,7 +52,7 @@ class IndicatorGuideDialog : DialogFragment() {
     }
 
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+   /* override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val adapter = InidcatorGuideListAdapter(requireActivity())
         recyclerViewHolder.adapter = adapter
 
@@ -56,7 +65,7 @@ class IndicatorGuideDialog : DialogFragment() {
         })
 
         return super.onCreateView(inflater, container, savedInstanceState)
-    }
+    }*/
 
 
     companion object {
