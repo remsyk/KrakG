@@ -14,9 +14,9 @@ class BotRemoveDialog : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
-        return AlertDialog.Builder(context!!)
+        return AlertDialog.Builder(requireContext())
             .setTitle("Are you sure you want to delete this bot?")
-            .setPositiveButton("YES") { dialog, which ->
+            .setPositiveButton("YES") { dialog,  which ->
                 "positive button".log()
                 getValue?.let{it(true)}
                 delete = true

@@ -5,10 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.krakg.R
-import com.example.krakg.ui.activities.MainActivity
+import com.example.krakg.ui.activities.MainActivity.Companion.setMainMenuVisibility
 import com.example.krakg.ui.activities.SettingsActivity
 import kotlinx.android.synthetic.main.fragment_settings.view.*
 import kotlinx.android.synthetic.main.viewgroup_setting_item_textviews.view.*
@@ -17,6 +16,12 @@ import kotlinx.android.synthetic.main.viewgroup_settings_item.view.*
 
 class SettingsFragment : Fragment() {
 
+
+    override fun onResume() {
+        setMainMenuVisibility(R.drawable.ic_add_24px_transparent)
+
+        super.onResume()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

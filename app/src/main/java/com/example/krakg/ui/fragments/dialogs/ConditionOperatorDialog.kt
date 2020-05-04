@@ -13,7 +13,7 @@ class ConditionOperatorDialog: DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
-        return AlertDialog.Builder(context!!)
+        return AlertDialog.Builder(requireContext())
             .setTitle("Select Item")
             .setSingleChoiceItems(resources.getStringArray(R.array.operator), 0){ dialog, which ->
                 getValue?.let { it(2) }

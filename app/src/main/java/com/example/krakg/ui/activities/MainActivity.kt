@@ -1,6 +1,5 @@
 package com.example.krakg.ui.activities
 
-import android.opengl.Visibility
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
@@ -14,14 +13,11 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.krakg.R
-import com.example.krakg.log
 import com.example.krakg.models.BotModel
 import com.example.krakg.services.UpdateService
+import com.example.krakg.ui.fragments.dialogs.IndicatorGuideDialog
 import com.example.krakg.ui.fragments.dialogs.ProgressDialog
 import com.example.krakg.view_models.BotsViewModel
-import com.example.krakg.view_models.DashboardViewModel
-import kotlinx.android.synthetic.main.viewgroup_actionbar_bots.*
-import kotlinx.android.synthetic.main.viewgroup_actionbar_bots.view.*
 
 
 //TODO figure out how to send out updates for apps not in app store
@@ -34,6 +30,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
+
+        IndicatorGuideDialog.show(supportFragmentManager)
 
         startService(UpdateService.newIntent(this))
 
@@ -92,9 +90,20 @@ class MainActivity : AppCompatActivity() {
 companion object{
     lateinit var mainMenu:Menu
 
-    fun setMainMenuVisibility(visibility: Boolean){
+    fun setMainMenuVisibility(icon: Int){
         if(::mainMenu.isInitialized) {
-            mainMenu.findItem(R.id.add_condition).isVisible = visibility
+            when(icon){
+
+                R.drawable.ic_add_24px->{
+                    mainMenu.findItem(R.id.add_condition).isEnabled = true
+                    mainMenu.findItem(R.id.add_condition).setIcon(R.drawable.ic_add_24px)
+                }
+
+                R.drawable.ic_add_24px_transparent->{
+                    mainMenu.findItem(R.id.add_condition).isEnabled = false
+                    mainMenu.findItem(R.id.add_condition).setIcon(R.drawable.ic_add_24px_transparent)
+                }
+            }
         }
     }
 

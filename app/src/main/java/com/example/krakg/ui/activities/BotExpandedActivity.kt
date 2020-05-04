@@ -9,6 +9,7 @@ import com.example.krakg.R
 import com.example.krakg.log
 import com.example.krakg.models.ConditionModel
 import com.example.krakg.ui.fragments.BotExpandedFragment
+import com.example.krakg.ui.fragments.dialogs.IndicatorGuideDialog
 import com.example.krakg.view_models.ConditionMakerViewModel
 
 
@@ -66,8 +67,7 @@ class BotExpandedActivity: AppCompatActivity() {
             }
 
             R.id.indicator_list_info ->{
-                "pause bot".log()
-
+                IndicatorGuideDialog.show(supportFragmentManager)
             }
 
             R.id.add_condition->{

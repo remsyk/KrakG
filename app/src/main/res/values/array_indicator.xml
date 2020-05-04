@@ -1,6 +1,6 @@
 <resources>
     <string-array name="indicators">
-        <item>Price</item>
+      <item>Price</item>
         <item>Avg</item>
         <item>Log</item>
     </string-array>
