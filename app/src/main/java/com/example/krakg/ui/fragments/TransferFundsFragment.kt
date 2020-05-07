@@ -19,15 +19,6 @@ import kotlinx.android.synthetic.main.viewgroup_settings_item.view.*
 
 class TransferFundsFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        (activity as AppCompatActivity).supportActionBar!!.setCustomView(R.layout.viewgroup_actionbar_settings)
-    }
-
-    override fun onResume() {
-        super.onResume()
-        (activity as AppCompatActivity).supportActionBar!!.setCustomView(R.layout.viewgroup_actionbar_settings)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

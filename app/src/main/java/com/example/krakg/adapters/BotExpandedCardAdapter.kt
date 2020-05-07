@@ -67,6 +67,7 @@ class BotExpandedCardAdapter(private val context: Context) : RecyclerView.Adapte
 
                 5 -> {//Total Trades
                     title.text = "Total Trades"
+                    card.isEnabled = false //todo remove on implementation
                     body.text = metricList.tradesHr.toString()
                     card.setOnClickListener {
                         (context as AppCompatActivity).supportFragmentManager.beginTransaction()
@@ -85,6 +86,7 @@ class BotExpandedCardAdapter(private val context: Context) : RecyclerView.Adapte
                 }
 
                 7 -> {//Paper Trading
+                    card.isEnabled= false //todo remove on implementation
                     title.text = "Paper Trading"
                     body.text = metricList.paperTrading.toString()
                     card.setOnClickListener {

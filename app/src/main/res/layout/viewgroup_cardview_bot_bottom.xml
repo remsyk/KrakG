@@ -42,6 +42,6 @@
         android:textSize="@dimen/title_large"
         android:layout_weight="1"
         android:padding="4dp"
-        android:textColor="@color/green"
+        android:textColor="@color/black"
         android:text="+5.10%" />
 </LinearLayout>

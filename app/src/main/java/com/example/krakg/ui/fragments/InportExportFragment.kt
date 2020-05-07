@@ -13,15 +13,8 @@ import com.example.krakg.R
 
 class InportExportFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        (activity as AppCompatActivity).supportActionBar!!.setCustomView(R.layout.viewgroup_actionbar_settings)
-    }
 
-    override fun onResume() {
-        super.onResume()
-        (activity as AppCompatActivity).supportActionBar!!.setCustomView(R.layout.viewgroup_actionbar_settings)
-    }
+    //TODO build out Inports/exports
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,8 +28,6 @@ class InportExportFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        /* val autoCompAdapter: ArrayAdapter<String> = ArrayAdapter<String>(context, R.layout.viewgroup_interval_autocomplete_item, resources.getStringArray(R.array.transfer_interval))
-           filled_exposed_dropdown.setAdapter(autoCompAdapter)*/
 
     }
 }

@@ -11,10 +11,10 @@ object TradeListViewModel : ViewModel() {
     private val tradeList: MutableLiveData<MutableList<TradeItemModel>> by lazy {
         MutableLiveData<MutableList<TradeItemModel>>().also {
             it.value = mutableListOf<TradeItemModel>(
-                TradeItemModel("Funny", "BTC/LTC", "3.324BTC", "3-2-20;18:00", false),
-                TradeItemModel("House", "LTC/BTC", "5.2BTC", "3-2-20;15:00", false),
-                TradeItemModel("Cards", "BTC/LTC", "8.34BTC", "3-2-20;10:00", true),
-                TradeItemModel("Cats", "LTC/BTC", "1.3BTC", "3-2-20;2:00", true)
+                TradeItemModel("Funny", "BTC/USD", "3.324BTC", "3-2-20;18:00", false),
+                TradeItemModel("House", "USD/BTC", "5.2BTC", "3-2-20;15:00", false),
+                TradeItemModel("Cards", "BTC/USD", "8.34BTC", "3-2-20;10:00", true),
+                TradeItemModel("Cats", "USD/BTC", "1.3BTC", "3-2-20;2:00", true)
             )
         }
     }

@@ -78,12 +78,12 @@ class MainActivity : AppCompatActivity(), androidx.appcompat.widget.SearchView.O
             R.id.add_condition -> {
                 val progressBar = ProgressDialog.show(supportFragmentManager).apply {
                     arguments = Bundle().apply {
-                        putString("title","Attempting to Add Bot")
+                        putString("title","Adding Bot")
                     }
                 }
                 BotsViewModel.getApiBotName {
                     Toast.makeText(this, "Bot Added", Toast.LENGTH_SHORT).show()
-                    BotsViewModel.addBot(BotModel(it, 1.3, "BTC>USD", "51.54", "1.3", "111", "222", "333", "444", true, "666", "777"))
+                    BotsViewModel.addBot(BotModel(it, 1.3, "BTC>USD", "0", "0", "0", "0", "0", "0", false, "0", "0"))
                     progressBar.dismiss()
                 }
             }

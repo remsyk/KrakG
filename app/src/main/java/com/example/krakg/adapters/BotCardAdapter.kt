@@ -70,7 +70,9 @@ class BotCardAdapter(
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val chart: AnyChartView = view.chart
         val botCard: CardView = view.cardview_bot
+        //TODO set color coding for when paper trading vs not
         val value: TextView = view.include_viewgroup_bottom_bot.textView_bot_value
+        //TODO set color coding for when positive or negative for gross
         val gross: TextView = view.include_viewgroup_bottom_bot.textview_bot_gross
         val title: TextView = view.textView_bot_title
         val exchange: TextView= view.include_viewgroup_bottom_bot.textView_bot_exchange

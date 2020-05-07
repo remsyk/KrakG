@@ -25,19 +25,19 @@ class DBManager  {
          Realm.getInstance(realmBotConfig).use { r ->
             r.executeTransaction { realm ->
                 realm.copyToRealmOrUpdate(BotRealmModel().apply{
-                    botId = bot_.title.substring(0,4)
+                    botId = bot_.title.substring(0,4) + bot_.title.subSequence(bot_.title.length-3,bot_.title.length)
                     title = bot_.title
                     graph =bot_.graph
                     exchange = bot_.exchange
-                    value = "123"
+                    value = "0"
                     gross = bot_.gross
-                    netChange = "111"
-                    tradesHr = "222"
-                    avg = "333"
-                    totalTrades = "444"
+                    netChange = "0"
+                    tradesHr = "0"
+                    avg = "0"
+                    totalTrades = "0"
                     paperTrading= true.toString()
-                    timeUp = "666"
-                    conditionList ="777"
+                    timeUp = "0"
+                    conditionList ="0"
 
                 })
             }

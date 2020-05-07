@@ -15,15 +15,8 @@ import kotlinx.android.synthetic.main.viewgroup_notifications_item.view.*
 
 class NotificationsFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        (activity as AppCompatActivity).supportActionBar!!.setCustomView(R.layout.viewgroup_actionbar_settings)
-    }
 
-    override fun onResume() {
-        super.onResume()
-        (activity as AppCompatActivity).supportActionBar!!.setCustomView(R.layout.viewgroup_actionbar_settings)
-    }
+    //TODO build out notifications
 
     override fun onCreateView(
         inflater: LayoutInflater,

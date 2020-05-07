@@ -39,29 +39,33 @@ class SettingsFragment : Fragment() {
         with(view) {
 
             include_notification_item.include_text_items.textview_title_settings.text = "Notifications"
-            include_notification_item.include_text_items.textview_subtitle_settings.text = "Set notification settings"
+            include_notification_item.include_text_items.textview_subtitle_settings.text = "Coming Soon"
             include_notification_item.imageview_settings_item.setImageDrawable(resources.getDrawable(R.drawable.ic_notifications_24px,requireActivity().theme))
+            include_notification_item.isEnabled = false //todo remove on implementation
             include_notification_item.setOnClickListener {
                 context.startActivity(Intent(context, SettingsActivity::class.java).putExtra("loadFragment", 1))
             }
 
             include_imports_item.include_text_items.textview_title_settings.text = "Imports/Exports"
-            include_imports_item.include_text_items.textview_subtitle_settings.text = "Here you can settle the imports and exports"
+            include_imports_item.include_text_items.textview_subtitle_settings.text = "Coming Soon"
             include_imports_item.imageview_settings_item.setImageDrawable(resources.getDrawable(R.drawable.ic_import_export_24px,requireActivity().theme))
+            include_imports_item.isEnabled = false//todo remove on implementation
             include_imports_item.setOnClickListener {
                 context.startActivity(Intent(context, SettingsActivity::class.java).putExtra("loadFragment", 2))
             }
 
             include_transfer_item.include_text_items.textview_title_settings.text = "Transfer Funds"
-            include_transfer_item.include_text_items.textview_subtitle_settings.text = "Transfer funds out of the bot"
+            include_transfer_item.include_text_items.textview_subtitle_settings.text = "Coming Soon"
             include_transfer_item.imageview_settings_item.setImageDrawable(resources.getDrawable(R.drawable.ic_attach_money_24px,requireActivity().theme))
+            include_transfer_item.isEnabled = false //todo remove on implementation
             include_transfer_item.setOnClickListener {
                 context.startActivity(Intent(context, SettingsActivity::class.java).putExtra("loadFragment", 3))
             }
 
             include_controls_item.include_text_items.textview_title_settings.text = "Control Panel"
-            include_controls_item.include_text_items.textview_subtitle_settings.text = "Other settings"
+            include_controls_item.include_text_items.textview_subtitle_settings.text = "Coming Soon"
             include_controls_item.imageview_settings_item.setImageDrawable(resources.getDrawable(R.drawable.ic_settings_24px,requireActivity().theme))
+            include_controls_item.isEnabled = false //todo remove on implementation
             include_controls_item.setOnClickListener {
                 context.startActivity(Intent(context, SettingsActivity::class.java).putExtra("loadFragment", 4))
             }

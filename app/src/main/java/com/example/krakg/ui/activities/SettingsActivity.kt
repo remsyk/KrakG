@@ -48,7 +48,12 @@ class SettingsActivity: AppCompatActivity() {
                     ControlPanelFragment()
                 ).addToBackStack("ControlPanelFragment").commit()
                 supportActionBar!!.title = "Control Panel"
-
+            }
+            5-> {
+                supportFragmentManager.beginTransaction().replace(R.id.framelayout_generic_layout,
+                    ApiKeysFragment()
+                ).addToBackStack("ApiKeysFragment").commit()
+                supportActionBar!!.title = "Api Keys"
             }
         }
     }
