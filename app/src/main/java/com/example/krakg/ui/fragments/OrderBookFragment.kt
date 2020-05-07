@@ -10,15 +10,18 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.krakg.R
 import com.example.krakg.adapters.TradeListAdapter
 import com.example.krakg.models.TradeItemModel
-import com.example.krakg.ui.activities.BotExpandedActivity.Companion.setActionBarAddCondition
+import com.example.krakg.ui.activities.MainActivity.Companion.setMainMenuVisibility
 import com.example.krakg.view_models.TradeListViewModel
 import kotlinx.android.synthetic.main.fragment_bot_condition_maker.*
+import kotlinx.android.synthetic.main.fragment_order_book.*
 
-class TradesListFragment: Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        setActionBarAddCondition(false)
-        super.onCreate(savedInstanceState)
+class OrderBookFragment : Fragment() {
+
+
+    override fun onResume() {
+        setMainMenuVisibility(R.drawable.ic_add_24px_transparent)
+        super.onResume()
     }
 
     override fun onCreateView(
@@ -26,27 +29,22 @@ class TradesListFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_bot_condition_maker, container, false)
-        return root
+        return inflater.inflate(R.layout.fragment_order_book, container, false)
     }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        setActionBarAddCondition(false)
-    }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recyclerView_conditions.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
+        recyclerView_trades.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
         val adapter = TradeListAdapter( requireActivity())
-        recyclerView_conditions.adapter = adapter
+        recyclerView_trades.adapter = adapter
 
-
-        TradeListViewModel.getTrades().observe(requireActivity(), Observer <MutableList<TradeItemModel>> {
+        TradeListViewModel.getFilteredList().observe(requireActivity(), Observer <MutableList<TradeItemModel>> {
             adapter.updateData(it)
         })
 
+        TradeListViewModel.getTrades().observe(requireActivity(), Observer  {
+            adapter.updateData(it)
+        })
     }
 }

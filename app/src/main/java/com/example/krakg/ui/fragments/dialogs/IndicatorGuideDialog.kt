@@ -35,37 +35,18 @@ class IndicatorGuideDialog : DialogFragment() {
         recyclerViewHolder.adapter = adapter
 
         rootView.cardview_inidicator_text.edit_text_search_indicators.doAfterTextChanged {
-            IndicatorGuideViewModel.filter(it!!.toString())
            adapter.updateData( IndicatorGuideViewModel.filter(it.toString()))
         }
-
 
         IndicatorGuideViewModel.getIndicators().observe(requireActivity(), Observer<MutableList<IndicatorGuideModel>> {
             adapter.updateData(it)
         })
-
 
         return AlertDialog.Builder(requireContext())
             .setTitle("Indicator Guide")
             .setView(rootView)
             .create()
     }
-
-
-   /* override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val adapter = InidcatorGuideListAdapter(requireActivity())
-        recyclerViewHolder.adapter = adapter
-
-        IndicatorGuideViewModel.getFiltered().observe(requireActivity(), Observer<MutableList<IndicatorGuideModel>> {
-            adapter.updateData(it)
-        })
-
-        IndicatorGuideViewModel.getIndicators().observe(requireActivity(), Observer<MutableList<IndicatorGuideModel>> {
-            adapter.updateData(it)
-        })
-
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }*/
 
 
     companion object {

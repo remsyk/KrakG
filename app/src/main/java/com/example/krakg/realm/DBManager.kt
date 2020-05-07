@@ -56,7 +56,7 @@ class DBManager  {
         val botList = mutableListOf<BotModel>()
         Realm.getInstance(realmBotConfig).where(BotRealmModel::class.java).findAll().let { realmObject->
             realmObject.forEach {
-                botList += BotModel(it.title!!,it.graph!!,it.exchange,it.value,it.gross!!,"111","222","333","444",true,"666","777")
+                botList += BotModel(it.title!!,it.graph!!,it.exchange,it.value,it.gross!!,it.netChange!!,it.tradesHr!!,it.avg!!,it.totalTrades!!,it.paperTrading!!.toBoolean(),it.timeUp!!,it.conditionList!!)
             }
         }
         return botList

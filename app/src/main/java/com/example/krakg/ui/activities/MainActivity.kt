@@ -1,7 +1,10 @@
 package com.example.krakg.ui.activities
 
+import android.app.SearchManager
+import android.content.Context
 import android.os.Bundle
 import android.view.*
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -13,17 +16,19 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.krakg.R
+import com.example.krakg.log
 import com.example.krakg.models.BotModel
 import com.example.krakg.services.UpdateService
 import com.example.krakg.ui.fragments.dialogs.IndicatorGuideDialog
 import com.example.krakg.ui.fragments.dialogs.ProgressDialog
 import com.example.krakg.view_models.BotsViewModel
+import com.example.krakg.view_models.TradeListViewModel
 
 
 //TODO figure out how to send out updates for apps not in app store
 //TODO set up error handling
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), androidx.appcompat.widget.SearchView.OnQueryTextListener {
 
     private lateinit var navController: NavController
 
@@ -32,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
-        startService(UpdateService.newIntent(this))
+        startService(UpdateService.newIntent(this))//updates the data at a set interval
 
         supportActionBar!!.setDisplayShowTitleEnabled(false)
         supportActionBar!!.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
@@ -44,6 +49,7 @@ class MainActivity : AppCompatActivity() {
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_bots,
+                R.id.navigation_order_book,
                 R.id.navigation_dashboard,
                 R.id.navigation_settings
             )
@@ -59,21 +65,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater: MenuInflater  = menuInflater
-        inflater.inflate(R.menu.actionbar_menu_add_bot,menu)
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.actionbar_menu_add_bot, menu)
         mainMenu = menu!!
+
+        (menu.findItem(R.id.search_menu).actionView as androidx.appcompat.widget.SearchView).apply {
+            this.setOnQueryTextListener(this@MainActivity)
+        }
         return true
     }
 
 
-
-    override fun onOptionsItemSelected(item:MenuItem): Boolean {
-        when(item.itemId){
-            R.id.add_condition->{
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.add_condition -> {
                 val progressBar = ProgressDialog.show(supportFragmentManager)
                 BotsViewModel.getApiBotName {
                     Toast.makeText(this, "Bot Added", Toast.LENGTH_SHORT).show()
-                    BotsViewModel.addBot(BotModel(it, 1.3, "BTC>USD", "51.54", "1.3","111","222","333","444",true,"666","777"))
+                    BotsViewModel.addBot(BotModel(it, 1.3, "BTC>USD", "51.54", "1.3", "111", "222", "333", "444", true, "666", "777"))
                     progressBar.dismiss()
                 }
             }
@@ -86,28 +95,42 @@ class MainActivity : AppCompatActivity() {
         outState.putInt("currentFragment", navController.currentDestination!!.id)
     }
 
-companion object{
-    lateinit var mainMenu:Menu
 
-    fun setMainMenuVisibility(icon: Int){
-        if(::mainMenu.isInitialized) {
-            when(icon){
+    override fun onQueryTextSubmit(p0: String?): Boolean {
+        if (p0 != null) {
+            p0.log()
+        }
+        return true
+    }
 
-                R.drawable.ic_add_24px->{
-                    mainMenu.findItem(R.id.add_condition).isEnabled = true
-                    mainMenu.findItem(R.id.add_condition).setIcon(R.drawable.ic_add_24px)
-                }
+    override fun onQueryTextChange(p0: String?): Boolean {
+        if (p0 != null) {
+            TradeListViewModel.filter2(p0)
+        }
+        return true
+    }
 
-                R.drawable.ic_add_24px_transparent->{
-                    mainMenu.findItem(R.id.add_condition).isEnabled = false
-                    mainMenu.findItem(R.id.add_condition).setIcon(R.drawable.ic_add_24px_transparent)
+
+    companion object {
+        lateinit var mainMenu: Menu
+
+        fun setMainMenuVisibility(icon: Int) {
+            if (::mainMenu.isInitialized) {
+                when (icon) {
+
+                    R.drawable.ic_add_24px -> {
+                        mainMenu.findItem(R.id.add_condition).isEnabled = true
+                        mainMenu.findItem(R.id.add_condition).setIcon(R.drawable.ic_add_24px)
+                    }
+
+                    R.drawable.ic_add_24px_transparent -> {
+                        mainMenu.findItem(R.id.add_condition).isEnabled = false
+                        mainMenu.findItem(R.id.add_condition).setIcon(R.drawable.ic_add_24px_transparent)
+                    }
                 }
             }
         }
     }
-
-
-}
 
 
 }

@@ -7,6 +7,11 @@
         android:title="Bots"/>
 
     <item
+        android:id="@+id/navigation_order_book"
+        android:icon="@drawable/ic_import_contacts_24px"
+        android:title="Order Book"/>
+
+    <item
         android:id="@+id/navigation_dashboard"
         android:icon="@drawable/ic_insert_chart_24px"
         android:title="Dashboard"/>

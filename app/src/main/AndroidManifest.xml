@@ -36,6 +36,8 @@
             android:name=".ui.activities.SettingsActivity"
             android:parentActivityName=".ui.activities.MainActivity"
             android:theme="@style/AppTheme" />
+
+
     </application>
 
 </manifest>

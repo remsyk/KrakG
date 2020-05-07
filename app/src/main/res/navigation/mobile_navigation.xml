@@ -12,6 +12,12 @@
         tools:layout="@layout/fragment_bots" />
 
     <fragment
+        android:id="@+id/navigation_order_book"
+        android:name="com.example.krakg.ui.fragments.OrderBookFragment"
+        android:label="Order Book"
+        tools:layout="@layout/fragment_order_book" />
+
+    <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.krakg.ui.fragments.DashboardFragment"
         android:label="@string/title_dashboard"

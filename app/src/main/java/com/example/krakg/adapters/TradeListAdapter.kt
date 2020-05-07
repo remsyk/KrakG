@@ -14,7 +14,7 @@ import com.example.krakg.ui.fragments.dialogs.*
 import kotlinx.android.synthetic.main.cardview_condition_viewer.view.*
 import kotlinx.android.synthetic.main.viewgroup_trade_item.view.*
 
-class TradeListAdapter(private val context: FragmentActivity): RecyclerView.Adapter<TradeListAdapter.ViewHolder>() {
+class TradeListAdapter(private val context: FragmentActivity) : RecyclerView.Adapter<TradeListAdapter.ViewHolder>() {
 
     private lateinit var tradeList: List<TradeItemModel>
 
@@ -33,10 +33,11 @@ class TradeListAdapter(private val context: FragmentActivity): RecyclerView.Adap
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         with(viewHolder) {
             executed.text = tradeList[position].time
+            botName.text = tradeList[position].botName
 
-            if(tradeList[position].executed){
+            if (tradeList[position].executed) {
                 executed.setTextColor(context.resources.getColor(R.color.black))
-            }else {
+            } else {
                 executed.setTextColor(context.resources.getColor(R.color.grayTransparent))
             }
             pair.text = tradeList[position].pair
@@ -44,16 +45,17 @@ class TradeListAdapter(private val context: FragmentActivity): RecyclerView.Adap
         }
     }
 
-    fun updateData(data: MutableList<TradeItemModel>){
+    fun updateData(data: MutableList<TradeItemModel>) {
         tradeList = data
         notifyDataSetChanged()
     }
 
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-            val executed = view.textview_executed
-            val pair = view.textview_pair
-            val amount = view.textview_amount
+        val executed = view.textview_executed
+        val botName = view.textview_trade_botname
+        val pair = view.textview_pair
+        val amount = view.textview_amount
     }
 }
 

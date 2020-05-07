@@ -6,4 +6,10 @@
         android:icon="@drawable/ic_add_24px"
         android:title="Add Condition"
         app:showAsAction="ifRoom" />
+
+    <item android:id="@+id/search_menu"
+        android:icon="@drawable/ic_search_24px_white"
+        android:title="Search"
+        app:showAsAction="collapseActionView|ifRoom"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"/>
 </menu>
