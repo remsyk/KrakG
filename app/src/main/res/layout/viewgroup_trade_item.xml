@@ -2,22 +2,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/linearLayout_trade_item">
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Bot Name"
         android:layout_gravity="start"
+        android:textStyle="bold"
+        android:textSize="@dimen/title"
+        android:textColor="@color/black"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:id="@+id/textview_trade_botname"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:paddingBottom="4dp"/>
+        android:paddingTop="8dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:layout_gravity="center"

@@ -34,9 +34,6 @@ object TradeListViewModel : ViewModel() {
         )
     }
 
-    fun filter(query: String): MutableList<TradeItemModel> = tradeList.value!!.filter {
-        it.botName.startsWith(query, true)
-    } as MutableList<TradeItemModel>
 
     private val tempList: MutableLiveData<MutableList<TradeItemModel>> by lazy {
         MutableLiveData<MutableList<TradeItemModel>>().also {
@@ -45,9 +42,7 @@ object TradeListViewModel : ViewModel() {
     }
 
 
-
-
-    fun filter2(query: String){
+    fun filter(query: String){
       tempList.postValue(  tradeList.value!!.filter {
           it.botName.startsWith(query, true)
       } as MutableList<TradeItemModel>  )

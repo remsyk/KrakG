@@ -12,6 +12,7 @@ import com.example.krakg.adapters.BotCardAdapter
 import com.example.krakg.R
 import com.example.krakg.models.BotModel
 import com.example.krakg.ui.activities.MainActivity.Companion.setMainMenuVisibility
+import com.example.krakg.ui.activities.MainActivity.Companion.setMainMenuVisibility2
 import com.example.krakg.view_models.BotsViewModel
 import kotlinx.android.synthetic.main.fragment_bots.*
 
@@ -19,12 +20,13 @@ class BotsFragment : Fragment() {
 
 
     override fun onResume() {
-           setMainMenuVisibility(R.drawable.ic_add_24px)
+        setMainMenuVisibility(R.drawable.ic_add_24px)
+        setMainMenuVisibility2(add = true, search = false)
        super.onResume()
     }
 
     override fun onPause() {
-        setMainMenuVisibility(R.drawable.ic_add_24px_transparent)
+        setMainMenuVisibility2(add = false, search = true)
         super.onPause()
     }
 

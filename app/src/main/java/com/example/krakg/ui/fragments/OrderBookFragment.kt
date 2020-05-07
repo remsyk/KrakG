@@ -11,6 +11,7 @@ import com.example.krakg.R
 import com.example.krakg.adapters.TradeListAdapter
 import com.example.krakg.models.TradeItemModel
 import com.example.krakg.ui.activities.MainActivity.Companion.setMainMenuVisibility
+import com.example.krakg.ui.activities.MainActivity.Companion.setMainMenuVisibility2
 import com.example.krakg.view_models.TradeListViewModel
 import kotlinx.android.synthetic.main.fragment_bot_condition_maker.*
 import kotlinx.android.synthetic.main.fragment_order_book.*
@@ -20,9 +21,10 @@ class OrderBookFragment : Fragment() {
 
 
     override fun onResume() {
-        setMainMenuVisibility(R.drawable.ic_add_24px_transparent)
+        setMainMenuVisibility2(add = false, search = true)
         super.onResume()
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -18,6 +18,7 @@ class TradesListFragment: Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setActionBarAddCondition(false)
+
         super.onCreate(savedInstanceState)
     }
 

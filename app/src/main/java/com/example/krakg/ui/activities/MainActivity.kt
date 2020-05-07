@@ -1,10 +1,7 @@
 package com.example.krakg.ui.activities
 
-import android.app.SearchManager
-import android.content.Context
 import android.os.Bundle
 import android.view.*
-import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -19,7 +16,6 @@ import com.example.krakg.R
 import com.example.krakg.log
 import com.example.krakg.models.BotModel
 import com.example.krakg.services.UpdateService
-import com.example.krakg.ui.fragments.dialogs.IndicatorGuideDialog
 import com.example.krakg.ui.fragments.dialogs.ProgressDialog
 import com.example.krakg.view_models.BotsViewModel
 import com.example.krakg.view_models.TradeListViewModel
@@ -68,6 +64,7 @@ class MainActivity : AppCompatActivity(), androidx.appcompat.widget.SearchView.O
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.actionbar_menu_add_bot, menu)
         mainMenu = menu!!
+        mainMenu.findItem(R.id.search_menu).isVisible = false
 
         (menu.findItem(R.id.search_menu).actionView as androidx.appcompat.widget.SearchView).apply {
             this.setOnQueryTextListener(this@MainActivity)
@@ -79,7 +76,11 @@ class MainActivity : AppCompatActivity(), androidx.appcompat.widget.SearchView.O
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.add_condition -> {
-                val progressBar = ProgressDialog.show(supportFragmentManager)
+                val progressBar = ProgressDialog.show(supportFragmentManager).apply {
+                    arguments = Bundle().apply {
+                        putString("title","Attempting to Add Bot")
+                    }
+                }
                 BotsViewModel.getApiBotName {
                     Toast.makeText(this, "Bot Added", Toast.LENGTH_SHORT).show()
                     BotsViewModel.addBot(BotModel(it, 1.3, "BTC>USD", "51.54", "1.3", "111", "222", "333", "444", true, "666", "777"))
@@ -105,7 +106,7 @@ class MainActivity : AppCompatActivity(), androidx.appcompat.widget.SearchView.O
 
     override fun onQueryTextChange(p0: String?): Boolean {
         if (p0 != null) {
-            TradeListViewModel.filter2(p0)
+            TradeListViewModel.filter(p0)
         }
         return true
     }
@@ -113,6 +114,13 @@ class MainActivity : AppCompatActivity(), androidx.appcompat.widget.SearchView.O
 
     companion object {
         lateinit var mainMenu: Menu
+
+        fun setMainMenuVisibility2(add:Boolean,search:Boolean){
+            if (::mainMenu.isInitialized) {
+                mainMenu.findItem(R.id.add_condition).isVisible = add
+                mainMenu.findItem(R.id.search_menu).isVisible = search
+            }
+        }
 
         fun setMainMenuVisibility(icon: Int) {
             if (::mainMenu.isInitialized) {

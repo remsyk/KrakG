@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Doing Something"
+        android:id="@+id/textView_title_progress"
+        android:textSize="@dimen/title_medium"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTintMode="src_atop"
+        android:indeterminateTint="@color/grayTransparent"
+        android:layout_gravity="center" />
+
+</LinearLayout>
