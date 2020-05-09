@@ -21,9 +21,8 @@ import com.example.krakg.view_models.BotsViewModel
 import com.example.krakg.view_models.TradeListViewModel
 
 
-//TODO figure out how to send out updates for apps not in app store
 //TODO set up error handling
-
+//TODO add widget
 class MainActivity : AppCompatActivity(), androidx.appcompat.widget.SearchView.OnQueryTextListener {
 
     private lateinit var navController: NavController
