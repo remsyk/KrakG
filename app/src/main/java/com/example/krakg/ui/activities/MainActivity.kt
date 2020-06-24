@@ -34,7 +34,6 @@ class MainActivity : AppCompatActivity(), androidx.appcompat.widget.SearchView.O
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
         NotificationHandler.init(this)
-        NotificationHandler.createNotification("Best Message","omg this works so well")
 
         startService(UpdateService.newIntent(this))//updates the data at a set interval
 
