@@ -27,16 +27,13 @@ class DBManager  {
                 realm.copyToRealmOrUpdate(BotRealmModel().apply{
                     botId = bot_.title.substring(0,4) + bot_.title.subSequence(bot_.title.length-3,bot_.title.length)
                     title = bot_.title
-                    graph =bot_.graph
                     exchange = bot_.exchange
                     value = "0"
                     gross = bot_.gross
                     netChange = "0"
-                    tradesHr = "0"
                     avg = "0"
                     totalTrades = "0"
                     paperTrading= true.toString()
-                    timeUp = "0"
                     conditionList ="0"
 
                 })
@@ -56,7 +53,7 @@ class DBManager  {
         val botList = mutableListOf<BotModel>()
         Realm.getInstance(realmBotConfig).where(BotRealmModel::class.java).findAll().let { realmObject->
             realmObject.forEach {
-                botList += BotModel(it.title!!,it.graph!!,it.exchange,it.value,it.gross!!,it.netChange!!,it.tradesHr!!,it.avg!!,it.totalTrades!!,it.paperTrading!!.toBoolean(),it.timeUp!!,it.conditionList!!)
+                botList += BotModel(it.title!!,it.exchange,it.value,it.gross!!,it.netChange!!,it.avg!!,it.totalTrades!!,it.paperTrading!!.toBoolean(),it.conditionList!!)
             }
         }
         return botList

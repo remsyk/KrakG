@@ -29,7 +29,7 @@ class BotExpandedCardAdapter(private val context: Context) : RecyclerView.Adapte
         )
     }
 
-    override fun getItemCount() = 10
+    override fun getItemCount() = 8
 
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
@@ -60,15 +60,11 @@ class BotExpandedCardAdapter(private val context: Context) : RecyclerView.Adapte
                     body.text = metricList.avg.toString() + "%"
                 }
 
-                4 -> {//Trades/Hr
-                    title.text = "Trades/Hr"
-                    body.text = metricList.tradesHr.toString()
-                }
 
-                5 -> {//Total Trades
+                4 -> {//Total Trades
                     title.text = "Total Trades"
                     card.isEnabled = false //todo remove on implementation
-                    body.text = metricList.tradesHr.toString()
+                    body.text = metricList.totalTrades.toString()
                     card.setOnClickListener {
                         (context as AppCompatActivity).supportFragmentManager.beginTransaction()
                             .replace(
@@ -80,12 +76,8 @@ class BotExpandedCardAdapter(private val context: Context) : RecyclerView.Adapte
                     }
                 }
 
-                6 -> {//Time up
-                    title.text = "Time Up"
-                    body.text = metricList.timeUp.toString() + "sec"
-                }
 
-                7 -> {//Paper Trading
+                5 -> {//Paper Trading
                     card.isEnabled= false //todo remove on implementation
                     title.text = "Paper Trading"
                     body.text = metricList.paperTrading.toString()
@@ -94,7 +86,7 @@ class BotExpandedCardAdapter(private val context: Context) : RecyclerView.Adapte
                         BotsViewModel.updatePaperTrading(position, tempBool)
                     }
                 }
-                8 -> {//Condition List
+                6 -> {//Condition List
                     title.text = "Condition List"
                     body.text = metricList.conditionList.toString()
                     card.setOnClickListener {
@@ -107,7 +99,7 @@ class BotExpandedCardAdapter(private val context: Context) : RecyclerView.Adapte
                             .commit()
                     }
                 }
-                9 -> {//Exchange
+                7 -> {//Exchange
                     title.text = "Exchange"
                     body.text = metricList.exchange.toString()
                 }

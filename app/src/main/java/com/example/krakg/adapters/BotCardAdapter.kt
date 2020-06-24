@@ -44,8 +44,8 @@ class BotCardAdapter(
             gross.text = "+" + botsList[position].gross + "%"
             exchange.text = botsList[position].exchange
 
-            val chartModel = LineChartActivity(chart)
-            chartModel.onCreate()
+           /* val chartModel = LineChartActivity(chart)
+            chartModel.onCreate()*/
 
             botCard.setOnClickListener {
                 context.startActivity(Intent(context, BotExpandedActivity::class.java).putExtra("botName",botsList[position].title).putExtra("position",position))
@@ -68,7 +68,7 @@ class BotCardAdapter(
 
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val chart: AnyChartView = view.chart
+       // val chart: AnyChartView = view.chart
         val botCard: CardView = view.cardview_bot
         //TODO set color coding for when paper trading vs not
         val value: TextView = view.include_viewgroup_bottom_bot.textView_bot_value

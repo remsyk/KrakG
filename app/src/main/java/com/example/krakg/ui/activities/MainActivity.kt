@@ -15,6 +15,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.krakg.R
 import com.example.krakg.log
 import com.example.krakg.models.BotModel
+import com.example.krakg.services.NotificationHandler
 import com.example.krakg.services.UpdateService
 import com.example.krakg.ui.fragments.dialogs.ProgressDialog
 import com.example.krakg.view_models.BotsViewModel
@@ -31,6 +32,9 @@ class MainActivity : AppCompatActivity(), androidx.appcompat.widget.SearchView.O
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
+
+        NotificationHandler.init(this)
+        NotificationHandler.createNotification("Best Message","omg this works so well")
 
         startService(UpdateService.newIntent(this))//updates the data at a set interval
 
@@ -82,7 +86,7 @@ class MainActivity : AppCompatActivity(), androidx.appcompat.widget.SearchView.O
                 }
                 BotsViewModel.getApiBotName {
                     Toast.makeText(this, "Bot Added", Toast.LENGTH_SHORT).show()
-                    BotsViewModel.addBot(BotModel(it, 1.3, "BTC>USD", "0", "0", "0", "0", "0", "0", false, "0", "0"))
+                    BotsViewModel.addBot(BotModel(it, "BTC/USD", "0", "0", "0", "0","0", false,"0"))
                     progressBar.dismiss()
                 }
             }
