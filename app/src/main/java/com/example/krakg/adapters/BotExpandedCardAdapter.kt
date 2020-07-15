@@ -36,7 +36,6 @@ class BotExpandedCardAdapter(private val context: Context) : RecyclerView.Adapte
         with(viewHolder) {
 
             //TODO diaable paper trading listener
-            //TODO change the expanded card model to take out prefix and suffix and just do all the string management of that here
 
             when (position) {
 

@@ -41,6 +41,8 @@ class DBManager  {
         }
     }
 
+    //TODO check if bots are being removed, because everytime I run the app, previously deleted bots are still there
+
      fun delBot( botId: String?)  {
          Realm.getInstance(realmBotConfig).use() { r ->
             r.executeTransaction(Realm.Transaction { realm ->

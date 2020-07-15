@@ -16,7 +16,7 @@ class ConditionIntervalDialog: DialogFragment() {
         return AlertDialog.Builder(requireContext())
             .setTitle("Select Item")
             .setSingleChoiceItems(resources.getStringArray(R.array.intervals), 0){ dialog, which ->
-                getValue?.let { it(2) }
+                getValue?.let { it(which) }
                 dialog!!.dismiss()
             }
             .create()

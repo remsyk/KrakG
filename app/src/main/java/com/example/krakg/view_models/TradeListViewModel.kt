@@ -7,6 +7,7 @@ import com.example.krakg.models.TradeItemModel
 
 object TradeListViewModel : ViewModel() {
 
+//TODO sync the trades with those in the database
 
     private val tradeList: MutableLiveData<MutableList<TradeItemModel>> by lazy {
         MutableLiveData<MutableList<TradeItemModel>>().also {

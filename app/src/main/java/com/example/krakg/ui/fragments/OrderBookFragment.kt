@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.fragment_bot_condition_maker.*
 import kotlinx.android.synthetic.main.fragment_order_book.*
 
 
+//TODO sync the order book with those in the database
 class OrderBookFragment : Fragment() {
 
 

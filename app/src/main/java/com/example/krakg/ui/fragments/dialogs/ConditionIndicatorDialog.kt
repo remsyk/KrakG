@@ -14,10 +14,10 @@ class ConditionIndicatorDialog: DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
-        return AlertDialog.Builder(context!!)
+        return AlertDialog.Builder(requireContext())
             .setTitle("Select Item")
             .setSingleChoiceItems(resources.getStringArray(R.array.indicators), 0){ dialog, which ->
-                getValue?.let { it(2) }
+                getValue?.let { it(which) }
                 dialog.dismiss()
             }
             .create()

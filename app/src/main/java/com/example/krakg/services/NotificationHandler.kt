@@ -11,7 +11,7 @@ import com.example.krakg.R
 
 object NotificationHandler  {
 
-    var CHANNEL_ID = "0"
+    var CHANNEL_ID = "4"
 
    lateinit var context: Context
     lateinit var notificationManager: NotificationManager
@@ -30,7 +30,7 @@ object NotificationHandler  {
             .setContentText(content)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
-        notificationManager.notify(12,builder.build())
+        notificationManager.notify(CHANNEL_ID.toInt(),builder.build())
 
     }
 
