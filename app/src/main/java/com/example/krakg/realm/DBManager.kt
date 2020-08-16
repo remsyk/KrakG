@@ -7,7 +7,7 @@ import io.realm.Realm
 import io.realm.RealmConfiguration
 import io.realm.annotations.RealmModule
 
-
+//TODO create configuration
 class DBManager  {
 
     val realmBotConfig = RealmConfiguration.Builder().name("botDb.realm")
@@ -41,7 +41,7 @@ class DBManager  {
         }
     }
 
-    //TODO check if bots are being removed, because everytime I run the app, previously deleted bots are still there
+    //TODO check if bots are being removed, because every time I run the app, previously deleted bots are still there
 
      fun delBot( botId: String?)  {
          Realm.getInstance(realmBotConfig).use() { r ->
