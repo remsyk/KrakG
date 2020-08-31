@@ -26,7 +26,7 @@ class ConditionAmountDialog: DialogFragment() {
             picker_change_type.displayedValues = resources.getStringArray(R.array.amount)
         }
 
-        return AlertDialog.Builder(context!!)
+        return AlertDialog.Builder(requireContext())
             .setTitle("Select Item")
             .setNegativeButton("Set") {dialog, _->
                 getValue?.let { it(rootView.editText_change_value.text.toString()) }

@@ -20,6 +20,7 @@ class ConditionIndicatorDialog: DialogFragment() {
                 getValue?.let { it(which) }
                 dialog.dismiss()
             }
+
             .create()
     }
 
